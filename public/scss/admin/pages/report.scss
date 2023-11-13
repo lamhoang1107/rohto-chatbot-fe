@@ -1,0 +1,59 @@
+@import 
+	'../../core/abstracts/variables';
+
+.Detail{
+	padding: 24px;
+
+
+	.report-wrapper{
+		.total-data {
+			display: flex;
+			justify-content: space-between;
+			margin: 10px;
+			
+			.ctn{
+				padding: 25px;
+				background-color: white;
+				width: 49%;
+
+
+				h4{
+					font-size: 1.6rem;
+					font-weight: 500;
+					color: #403f3f;
+				}
+
+				p{
+					font-size: 2.5rem;
+					font-weight: 700;
+				}
+
+			}
+		}
+		.chart-container{
+			display: flex;
+			margin: 10px;
+			justify-content: space-between;
+			flex-wrap: wrap;
+
+			.chart {
+				display: flex !important;
+				width: 49%;
+				padding: 30px;
+				background-color: white;
+				margin-bottom: 10px;
+				justify-content: center;
+
+				.chart-content{
+					width:100%;
+					max-width: 600px
+				}
+
+			}
+		}
+	}
+}
+
+
+
+

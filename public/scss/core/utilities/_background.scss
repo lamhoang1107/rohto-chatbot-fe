@@ -1,0 +1,13 @@
+@import '../abstracts/variables';
+
+@each $color, $value in $theme-colors {
+    @if $color == 'gradiant'{
+        .bg-#{$color} {
+            background: $btn-gradiant !important;
+        }
+    } @else {
+        .bg-#{$color} {
+            background-color: $value;
+        }
+    }
+}

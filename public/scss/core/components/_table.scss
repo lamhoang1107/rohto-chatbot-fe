@@ -1,0 +1,171 @@
+.table-container{
+    background-color: getColor(primary-background);
+    @include border-radius(3px);
+
+    table{
+        width: 100%;
+
+        thead{
+
+            tr{
+                th{
+                    padding: 13px 15px 13px;
+                    border-bottom: 1px solid getColor(primary-border);
+                    background-color: getColor(primary-background);
+                    font-weight: 500;
+                    color: $text-color-secondary;
+                    text-transform: uppercase;
+                    font-size: 1.2rem;
+                    text-align: left;
+                    vertical-align: middle;
+                    height: 63px;
+
+                    &:first-child{
+                        padding: 13px 15px 13px 0;
+                    }
+
+                    &.sort{
+                        cursor: pointer;
+                    }
+
+                    &.sorting{
+
+                        &::after{
+                            width: 10px;
+                            height: 10px;
+                            bottom: auto;
+                            right: auto;
+                            left: auto;
+                            margin-left: 10px;
+                            font-family: "Font Awesome 5 Pro";
+                            top: 50%;
+                            @include translate(0,-50%);
+                            @include transition(all .2s linear);
+                        }
+                    }
+
+                    &.sortingAsc{
+
+                        &::after{
+                            content: "\f106";
+                        }
+                    }
+
+                    &.sortingDesc{
+
+                        &::after{
+                            content: "\f107";
+                        }
+                    }
+                }
+            }
+        }
+
+        tbody{
+
+            tr{
+
+                td{
+                    padding: 13px 30px 13px 15px;
+                    border-bottom: 1px solid getColor(primary-border);
+                    font-size: $font-size-fullPage;
+                    color: $text-color-primary;
+                    font-weight: 400;
+                    text-align: left;
+                    vertical-align: middle;
+                    text-overflow: ellipsis;
+                    word-break: break-word;
+
+                    &:first-child{
+                        padding: 13px 15px 13px 0;
+                    }
+
+                    .status{
+
+                        i{
+                            font-size: .7rem;
+                            position: relative;
+                            top: -2px;
+                            margin-right: 5px;
+                        }
+                    }
+
+                    .text-success{
+                        color: #198754;
+                    }
+
+                    .text-danger{
+                        color: #dc3545;
+                    }
+
+                    .text-warning{
+                        color: #ffc107;
+                    }
+
+                    .text-info{
+                        color: #0dcaf0;
+                    }
+
+                    .d-flex{
+                        width: 100%;
+                        justify-content: center;
+                    }
+
+                    .img{
+                        width: 45px;
+                        height: 45px;
+                        overflow: hidden;
+                        @include border-radius(3px);
+                    }
+
+                    span[style*="display: inline-block;"]{
+                        display: inherit !important;
+                    }
+                    .url{
+                        text-overflow: ellipsis;
+                        display: block;
+                        overflow: hidden;
+                        white-space: nowrap; 
+                        width: 150px;
+                    }
+                    .url:hover{
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+
+    .MuiCheckbox-root{
+
+        &:hover{
+            background-color: rgba($primary,.03);
+        }
+    }
+
+    .tt-btn{
+        height: 35px;
+        width: 35px;
+        padding: 0;
+        font-size: 1.4rem;
+        border: 0;
+        min-width: 35px;
+        background-color: transparent;
+
+        i{
+            margin-right: 0;
+        }
+
+        &:hover{
+            background-color: $secondary-background;
+
+            i{
+                color: $primary;
+            }
+        }
+    }
+
+    .MuiFormControlLabel-root{
+        margin-right: 0;
+    }
+}

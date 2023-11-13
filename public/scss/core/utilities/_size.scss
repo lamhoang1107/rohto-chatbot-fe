@@ -1,0 +1,86 @@
+@import '../abstracts/variables';
+
+// stylelint-disable declaration-no-important
+// Margin and Padding
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+        @each $prop,
+        $abbrev in (width: wp, height: hp) {
+            $sizepx : 100;
+            @while $sizepx > 0{
+                .#{$abbrev}#{$infix}-#{$sizepx} {
+                    #{$prop}: #{$sizepx}+'%' !important;
+                    $sizepx: $sizepx - 1;
+                }
+            }
+        }
+    }
+
+    @include media-breakpoint-up($breakpoint) {
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+        @each $prop,
+        $abbrev in (width: w, height: h) {
+            $sizepx : 100;
+            @while $sizepx > 0{
+                .#{$abbrev}#{$infix}-#{$sizepx} {
+                    #{$prop}: #{$sizepx}px !important;
+                    $sizepx: $sizepx - 1;
+                }
+            }
+        }
+    }
+
+    @include media-breakpoint-up($breakpoint) {
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+        @each $prop, $abbrev in (margin: m, padding: p) {
+            $sizepx : 100;
+            @while $sizepx > 0{
+                .#{$abbrev}#{$infix}-#{$sizepx} {
+                    #{$prop}: #{$sizepx}px !important;
+                    $sizepx: $sizepx - 1;
+                }
+            }
+        }
+
+        @each $prop, $abbrev in (margin: m, padding: p) {
+            $sizepx : 100;
+            @while $sizepx > 0{
+                .#{$abbrev}t#{$infix}-#{$sizepx}{
+                    #{$prop}-top: #{$sizepx}px !important;
+                    $sizepx: $sizepx - 1;
+                }
+            }
+        }
+
+        @each $prop, $abbrev in (margin: m, padding: p) {
+            $sizepx : 100;
+            @while $sizepx > 0{
+                .#{$abbrev}r#{$infix}-#{$sizepx}{
+                    #{$prop}-right: #{$sizepx}px !important;
+                    $sizepx: $sizepx - 1;
+                }
+            }
+        }
+
+        @each $prop, $abbrev in (margin: m, padding: p) {
+            $sizepx : 100;
+            @while $sizepx > 0{
+                .#{$abbrev}b#{$infix}-#{$sizepx}{
+                    #{$prop}-bottom: #{$sizepx}px !important;
+                    $sizepx: $sizepx - 1;
+                }
+            }
+        }
+
+        @each $prop, $abbrev in (margin: m, padding: p) {
+            $sizepx : 100;
+            @while $sizepx > 0{
+                .#{$abbrev}l#{$infix}-#{$sizepx}{
+                    #{$prop}-left: #{$sizepx}px !important;
+                    $sizepx: $sizepx - 1;
+                }
+            }
+        }
+    }
+}

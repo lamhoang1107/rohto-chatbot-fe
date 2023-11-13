@@ -1,0 +1,380 @@
+@import "../../core/abstracts/variables";
+
+#aside {
+  position: $adAside-position;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: $adAside-width;
+  background-color: $adAside-background;
+  z-index: $adAside-zIndex;
+  border-right: 1px solid #e5e7eb;
+  @include transition(all 0.2s linear);
+
+  #asideBrand {
+    height: $adAsideBrand-height;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $adAsideBrand-padding;
+    background-color: $adAsideBrand-background;
+
+    .brandLogo {
+      color: #fff !important;
+      text-transform: uppercase;
+      font-size: $adAsideBrand-fontsize;
+      font-weight: 700;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      @include transition(all 0.2s linear);
+      >span{
+        margin: 0 10px !important;
+      }
+      h2,
+      [class^= "MuiTypography-root"] {
+        color: var(--joy-palette-gray-900);
+        line-height: 1;
+        font-size: 20px;
+        font-weight: 600;
+      }
+    }
+
+    button {
+      &:hover {
+        background-color: transparent !important;
+      }
+    }
+
+    svg {
+      width: 22px;
+      height: 22px;
+      margin-right: -2px;
+
+      g [fill] {
+        fill: $adAsideBrand-icon-color;
+      }
+
+      &:hover {
+        g [fill] {
+          fill: $adAsideBrand-icon-color-hover;
+        }
+      }
+    }
+  }
+
+  #asideMenu {
+    .asideScroll {
+      height: calc(100vh - 180px);
+    }
+
+    [class^="MuiList-root"] {
+      background-color: transparent !important;
+    }
+
+    [class^="profile-block"]{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      cursor: pointer;
+      padding: 10px;
+      [class^="MuiAvatar-root"] {
+        margin-right: 12px;
+      }
+      span {
+        font-size: 16px;
+        font-weight: 900;
+        transition: 0.2s ease-in-out;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .menuNav {
+      margin-top: $adAsideNav-marginTop;
+      padding-bottom: 0;
+      padding-right: 15px;
+      [class*="MuiListItem-root"],
+      .menuSection {
+        padding: $adAsideNav-padding;
+      }
+
+      .menuSection {
+        text-transform: $adAsideNav-title-transform;
+        font-size: $adAsideNav-title-fontSize;
+        font-family: $adAsideNav-title-family;
+        color: $adAsideNav-title-color;
+        height: $adAsideNav-title-height;
+        position: relative;
+        background-color: transparent;
+        font-weight: 600;
+        @include transition(all 0.2s linear);
+
+        &::before {
+          content: "\f141";
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          color: $adAsideNav-title-color;
+          font-family: $font-icon-pro;
+          font-size: 2rem;
+          @include translate(-50%, -50%);
+          @include transition(all 0.2s linear);
+          @include opacity(0);
+        }
+      }
+
+      .menuItem {
+        height: $adAsideNav-item-height;
+
+        .menuIcon {
+          display: flex;
+          width: 16px;
+          margin-right: $adAsideNav-item-icon-marginRight;
+
+          svg {
+            margin-left: -3px;
+            min-width: 20px;
+            max-width: 20px;
+
+            g [fill] {
+              fill: $adAsideBrand-icon-color;
+            }
+
+            .iconFill {
+              fill: $adAsideBrand-icon-color;
+            }
+          }
+        }
+
+        [class*="MuiListItemText-root"] {
+          margin: 0;
+
+          span {
+            color: $adAsideNav-text-color;
+            font-size: $adAsideNav-text-fontSize;
+            font-weight: $adAsideNav-text-fontWeight;
+            @include transition(all 0.2s linear);
+          }
+        }
+
+        i[class^="fa"] {
+          color: $adAside-icon-color !important;
+          font-size: 0.9rem;
+        }
+
+        &.menuItemActive,
+        &:hover,
+        &.showSubMenu {
+          background-color: $adAside-bgHoverActive;
+          // width: 85%;
+          .menuIcon {
+            svg {
+              g [fill] {
+                fill: $adAside-icon-color-hover;
+              }
+			  .iconFill {
+				fill: $adAsideBrand-icon-color-hover;
+			  }
+            }
+          }
+
+          [class*="MuiListItemText-root"] {
+            span {
+              color: $adAsideNav-text-color-hover !important;
+            }
+          }
+
+          i[class^="fa"] {
+            color: #fff !important;
+          }
+
+          .menuBulletDot {
+            background-color: $adAside-icon-color-hover !important;
+          }
+        }
+
+        &.showSubMenu {
+          i {
+            @include rotate(90deg);
+          }
+        }
+      }
+
+      .menuItemSub {
+        .menuItem {
+          .MuiListItemText-root span {
+            font-weight: 400;
+          }
+        }
+      }
+
+      .menuBulletDot {
+        width: $adAsideNav-bullet-dot-width;
+        height: $adAsideNav-bullet-dot-height;
+        background-color: $adAside-icon-color;
+        margin-left: $adAsideNav-bullet-dot-marginLeft;
+        margin-right: $adAsideNav-bullet-dot-marginRight;
+        @include border-radius(100%);
+        @include transition(all 0.2s linear);
+      }
+    }
+    .logoutBlock{
+      position: absolute;
+      bottom: 0;
+      [class^="MuiListItem-root"] {
+        cursor: pointer;
+        margin-bottom: 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        [class*="MuiListItemIcon-root"]{
+         min-width: 35px !important;
+        }
+        &:hover {
+          background-color: #ffffff !important;
+          [class*="MuiListItemText-primary"] {
+            color: #046cbc;
+          }
+          [class*="MuiListItemIcon-root"]{
+            svg {
+              color: #046cbc;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.asideMiniminze #aside {
+  width: $adAside-width-minimize;
+
+  #asideBrand {
+    .brandLogo {
+      display: none;
+    }
+
+    svg {
+      margin-right: 0;
+      @include rotate(180deg);
+
+      g [fill] {
+        fill: $adAsideBrand-icon-color-hover;
+      }
+    }
+  }
+
+  #asideMenu {
+    .menuNav {
+      .menuSection {
+        font-size: 0 !important;
+
+        &::before {
+          @include opacity(1);
+        }
+      }
+
+      .menuItem {
+        [class*="MuiListItemText-root"] {
+          span {
+            font-size: 0 !important;
+          }
+        }
+
+        i[class^="fa"] {
+          display: none;
+        }
+      }
+
+      .menuItemSub {
+        height: 0;
+      }
+    }
+    [class^="profile-block"]{
+      span {
+        font-size: 0 !important;
+      }
+    }
+  }
+  .logoutBlock{
+    [class*="MuiListItemText-primary"] {
+      font-size: 0px !important;
+    }
+  }
+}
+
+.asideMinimizeHover #aside {
+  #asideBrand {
+    svg {
+      margin-right: 0;
+      @include rotate(180deg);
+
+      g [fill] {
+        fill: $adAsideBrand-icon-color-hover;
+      }
+    }
+  }
+}
+
+#aside {
+  &:hover:not(.animating) {
+    width: $adAside-width;
+
+    #asideBrand {
+      .brandLogo {
+        display: block;
+      }
+    }
+
+    #asideMenu {
+      .menuNav {
+        .menuSection {
+          font-size: $adAsideNav-title-fontSize !important;
+          &::before {
+            @include opacity(0);
+          }
+        }
+
+        .menuItem {
+          [class*="MuiListItemText-root"] {
+            span {
+              font-size: $adAsideNav-text-fontSize !important;
+            }
+          }
+
+          i[class^="fa"] {
+            display: inline;
+          }
+        }
+
+        .menuItemSub {
+          height: inherit;
+        }
+      }
+      [class^="profile-block"]{
+        span {
+          font-size: 16px !important;
+        }
+      }
+    }
+    .logoutBlock{
+      [class*="MuiListItemText-primary"] {
+        font-size: 1.3rem !important;
+      }
+    }
+  }
+}
+
+.asideMiniminze div[id="tt-main"] {
+  padding-left: $adAside-width-minimize !important;
+}
+
+.asideMiniminze header[class^="MuiPaper-root"] {
+  padding-left: $adAside-width-minimize !important;
+}
+
+.asideMiniminze div[class="toolbar"] {
+  padding-left: $adAside-width-minimize !important;
+}

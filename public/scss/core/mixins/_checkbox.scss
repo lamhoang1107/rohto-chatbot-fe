@@ -1,0 +1,20 @@
+@import '../abstracts/variables';
+
+
+@mixin checkbox-variant($background) {
+    background: $background !important;
+    @include transition(all .3s ease);
+
+    &::before{
+        font-family: "Font Awesome 5 Pro";
+        content: "\F00C";
+        font-size: 1rem;
+        font-weight: bold;
+        color: #fff;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        @include translate(-50%,-50%);
+    }
+}
+

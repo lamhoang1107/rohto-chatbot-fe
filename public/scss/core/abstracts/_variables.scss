@@ -1,0 +1,441 @@
+@import '../../admin/base/setting';
+@import 'functions';
+@import 'mixins';
+
+
+
+// Url
+//
+// image, fonts
+
+$url-images   : "/images";
+$url-font 	  : "/fonts";
+
+
+
+// Grid breakpoints
+//
+// Uadapting to different screen sizes, for use in media queries.
+
+$grid-breakpoints: (
+	xs: 0,
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1200px,
+	xxl: 1400px,
+) !default;
+
+
+
+// Color dark mode
+//
+// primary, secondary, third
+
+$darkMode-100     : #0f0f0f;
+$darkMode-90      : #18191a;
+$darkMode-60      : #242526;
+$darkMode-30      : #3a3b3c;
+$darkMode-gray-30 : #e4e6eb;
+$darkMode-gray-60 : #b0b3b8;
+$darkMode-black   : #000000;
+
+
+// Color system
+//
+// system
+
+$white    : #fff !default;
+$gray-100 : #f8f9fa !default;
+$gray-200 : #e9ecef !default;
+$gray-300 : #dee2e6 !default;
+$gray-400 : #ced4da !default;
+$gray-500 : #adb5bd !default;
+$gray-600 : #6c757d !default;
+$gray-700 : #495057 !default;
+$gray-800 : #343a40 !default;
+$gray-900 : #212529 !default;
+$black    : #000 !default;
+
+$green	        : #45bd62;
+$red	        : #f02849;
+$blue	        : #3699ff;
+$orange         : #f7b928 ;
+$gray           : #b5b5c3;
+$facebook       : #3b5998;
+$youtube        : #d63939;
+$twitter        : #1da1f2;
+$tiktok         : #000;
+$dailymotion    : #0066dc;
+$gradiant       : linear-gradient(0deg, #223F87 0%, #D7212A 100%);
+$gradiant-hover : linear-gradient(135deg,#901c9c 100%,#5661e1 100%);
+$primary-hover: #183FBA;
+
+$colors: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$colors: map-merge(
+	(
+	    "green"       : $green,
+	    "red"         : $red,
+	    "blue"        : $blue,
+	    "orange"      : $orange,
+	    "gray"        : $gray,
+	    "facebook"    : $facebook,
+	    "youtube"     : $youtube,
+	    "twitter"     : $twitter,
+	    "tiktok"      : $tiktok,
+	    "dailymotion" : $dailymotion,
+	),
+	$colors
+);
+
+$primary   : $blue !default;
+$secondary : $red !default;
+$success   : #28a745 !default;
+$warning   : #ffc107 !default;
+$danger    : #dc3545 !default;
+$info      : #17a2b8 !default;
+
+
+$theme-colors: () !default;
+$theme-colors: map-merge(
+	(
+		"primary"     : $primary,
+		"secondary"   : $secondary,
+		"gradiant"    : $gradiant,
+		"success"     : $success,
+		"info"        : $info,
+		"warning"     : $warning,
+		"gray"        : $gray,
+		"danger"      : $danger,
+		"facebook"    : $facebook,
+		"youtube"     : $youtube,
+		"twitter"     : $twitter,
+		"tiktok"      : $tiktok,
+		"dailymotion" : $dailymotion,
+	),
+	$theme-colors
+);
+
+// Customize the light and dark text colors for use in our YIQ color contrast function.
+$yiq-contrasted-threshold : 150 !default;
+$yiq-text-dark            : $gray-900 !default;
+$yiq-text-light           : $white !default;
+
+
+
+// Light Mode + Dark Mode
+//
+// 
+
+
+$primary-background: getColor(primary-background); // fff - 242526
+$primary-text: getColor(primary-text); // 181c32 - e4e6eb
+$primary-border: getColor(primary-border); // rgba(#000,.1) - rgba(#fff,.1)
+$primary-hover: getColor($primary-hover);
+$secondary-background: getColor(secondary-background); // f0f2f5 - 3a3b3c
+$secondary-text: getColor(secondary-text); // a1a5b7 - b0b3b8
+$third-text: getColor(third-third); // a1a5b7 - b0b3b8
+
+
+// Zindex
+//
+// dropdown, sticky, fixed, modal-backdrop, modal, popover, tooltip
+ 
+$zindex-dropdown:          1000 !default;
+$zindex-sticky:            1020 !default;
+$zindex-fixed:             1030 !default;
+$zindex-modal-backdrop:    1040 !default;
+$zindex-modal:             1050 !default;
+$zindex-popover:           1060 !default;
+$zindex-tooltip:           1070 !default;
+
+
+
+// Typography
+//
+// fonts
+
+$font-family-primary : 'Roboto', sans-serif;
+$font-icon-pro		 : 'Font Awesome 5 Pro';
+$font-icon-duo		 : 'Font Awesome 5 Duotone';
+$font-family-base    : $font-family-primary !default;
+
+$font-weight-light  : 300 !default;
+$font-weight-normal : 400 !default;
+$font-weight-bold   : 700 !default;
+$font-weight-base   : $font-weight-normal !default;
+
+$font-size-base     : 1rem !default; // Assumes the browser default, typically `10px`
+$font-size-fullPage : $font-size-base * 1.2 !default;
+
+$headings-font-weight:        500 !default;
+
+// text color page
+
+$text-color-primary   : getColor(primary-text) !default;
+$text-color-secondary : getColor(secondary-text) !default;
+
+
+
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+
+$enable-gradients                  : false !default;
+$enable-pointer-cursor-for-buttons : true !default;
+
+
+// Buttons
+//
+// text, background, height, padding, gradiant and border color.
+
+$btn-font-family    : $font-family-base;
+$btn-font-weight    : 400;
+$btn-color          : #fff;
+$btn-height         : 40px;
+$btn-padding-y      : 0;
+$btn-padding        : 0 15px;
+$btn-border-radius  : 8px;
+$btn-border-width   : 1px;
+$btn-font-size      : 16px;
+$btn-transition     : all 0.1s linear;
+$btn-transform      : capitalize;
+$btn-gradiant       : $gradiant;
+$btn-gradiant-hover : $gradiant-hover;
+$btn-boxshadow      : none;
+
+$btn-light-color: $secondary-text;
+$btn-light-background: $secondary-background;
+$btn-light-background-hover: $secondary-background;
+
+
+
+// toolbar
+//
+// text, background, height, padding, gradiant and border color.
+
+
+
+// Form
+//
+// checkbox
+ 
+/* Form */
+
+$form-group-margin-bottom : 15px !default;
+$form-group-align-items   : center !default;
+
+
+
+/* Label not Mui */
+
+$lbl-width          : 30% !default;
+$lbl-font-size      : $font-size-fullPage !default;
+$lbl-font-weight    : $font-weight-base !default;
+$lbl-font-family    : $font-family-base !default;
+$lbl-color          : #fff !default;
+$lbl-align-items    : center !default;
+$lbl-text-transform : capitalize !default;
+
+
+
+/* Label Mui */
+
+$lbl-Mui-color            : #b5b5c3;
+$lbl-Mui-color-focus      : $primary;
+$lbl-Mui-shrink-color     : rgba(#fff,.8);
+$lbl-Mui-font-size        : $font-size-fullPage !default;
+$lbl-Mui-font-weight      : $font-weight-base !default;
+$lbl-Mui-font-family      : $font-family-base !default;
+$lbl-Mui-text-transform   : capitalize !default;
+$lbl-Mui-transform        : translate(27px, 20px) scale(1) !default;
+$lbl-Mui-shrink-transform : translate(27px, 10px) scale(0.75) !default;
+
+
+
+/* Check box */
+
+$cbx-width           : 18px;
+$cbx-height          : 18px;
+$cbx-border-radius   : 3px;
+$cbx-backgroud-color : $secondary-background;
+
+
+
+/* Input */
+
+$input-border-width     : 1px !default;
+$input-border-color     : getColor(bgInput) !default;
+$input-border-radius    : 5px !default;
+$input-font-family      : $font-family-primary !default;
+$input-font-weight      : $font-weight-base !default;
+$input-font-size        : $font-size-fullPage !default;
+$input-line-height      : 1.2rem !default;
+$input-color            : getColor(textInput) !default;
+$input-padding          : 6px 0 7px !default;
+$input-background       : getColor(bgInput) !default;
+$input-background-focus : $input-background !default;
+
+
+
+/* Input Filled */
+
+$input-Filled-padding: 27px 12px 10px 27px !default;
+
+
+
+/* Input Outline */
+
+$input-Outline-padding: 18.5px 14px !default;
+
+
+
+/* MuiIconButton */
+
+$MuiIconButton-background-hover : getColor(MuiIconButton-background-hover);
+$MuiIconButton-color            : getColor(fillSvg);
+
+
+
+// Aside
+//
+// Aside Admin
+
+/* main */
+
+$adAside-position         : fixed !default;
+$adAside-width            : 290px !default;
+$adAside-width-minimize   : 70px !default;
+$adAside-background       : getColor(aside-background) !default;
+$adAside-zIndex           : 1200 !default;
+$adAside-padding          : 0 20px !default;
+$adAside-bgHoverActive    : getColor(aside-brand-background) !default;
+$adAside-icon-color       : #4b5575 !default;
+$adAside-icon-color-hover : #046cbc !default;
+$adAside-text-color       : #344054 !default;
+$adAside-text-color-hover : #046cbc !default;
+
+
+
+/* brand */
+
+$adAsideBrand-height           : 65px !default;
+$adAsideBrand-background       : getColor(aside-brand-background) !default;
+$adAsideBrand-padding          : $adAside-padding !default;
+$adAsideBrand-icon-color       : $adAside-icon-color !default;
+$adAsideBrand-icon-color-hover : $adAside-icon-color-hover !default;
+$adAsideBrand-fontsize         : 1.6rem !default;
+
+
+
+/* block menu */
+
+$adAsideNav-marginTop : 10px !default;
+$adAsideNav-padding   : $adAside-padding !default;
+
+$adAsideNav-title-fontSize  : 14px !default;
+$adAsideNav-title-transform : uppercase !default;
+$adAsideNav-title-family    : $font-family-base !default;
+$adAsideNav-title-color     : #73738c !default;
+$adAsideNav-title-height    : 40px !default;
+
+$adAsideNav-item-height           : $adAsideNav-title-height + 4px !default;
+$adAsideNav-item-icon-marginRight : 10px !default;
+
+$adAsideNav-text-color       : $adAside-text-color !default;
+$adAsideNav-text-color-hover : $adAside-text-color-hover !default;
+$adAsideNav-text-fontSize    : 1.3rem !default;
+$adAsideNav-text-fontWeight  : 500 !default;
+
+$adAsideNav-bullet-dot-width       : 4px !default;
+$adAsideNav-bullet-dot-height      : 4px !default;
+$adAsideNav-bullet-dot-marginLeft  : 13px !default;
+$adAsideNav-bullet-dot-marginRight : 19px !default;
+
+
+
+// Perfect scroll
+//
+// scroll bar
+
+$psb-background       : #5c647e !default;
+$psb-background-hover : #697088 !default;
+
+
+
+/* scroll rail */
+
+$psb-railX-height : 15px !default;
+$psb-railY-width  : 15px !default;
+
+
+
+/* scroll thumb */
+
+$psb-thumbX-height       : 6px !default;
+$psb-thumbX-height-hover : 11px !default;
+$psb-thumbY-width        : 6px !default;
+$psb-thumbY-width-hover  : 11px !default;
+
+
+
+// Alerts
+//
+// Define alert colors, border radius, and padding.
+ 
+// Breadcrumbs
+
+$breadcrumb-font-size             : $font-size-fullPage !default;
+$breadcrumb-padding-y             : 0 !default;
+$breadcrumb-padding-x             : 0 !default;
+$breadcrumb-item-padding          : 20px !default;
+$breadcrumb-bg                    : transparent !default;
+$breadcrumb-divider               : "\f6aa" !default;
+$breadcrumb-divider-color         : #6c7293 !default;
+$breadcrumb-divider-fontWeight    : 900 !default;
+$breadcrumb-divider-fontSize      : 1.6rem !default;
+$breadcrumb-divider-left          : 0 !default;
+$breadcrumb-divider-top           : 5px !default;
+$breadcrumb-border-radius         : 0 !default;
+$breadcrumb-active-color          : getColor(primary-text) !default;
+$breadcrumb-link-fontWeight       : 500 !default;
+$breadcrumb-link-hover-decoration : none !default;
+
+
+
+// dropdown
+//
+// width, padding, margin, color, background, border, border-radius, shadow
+ 
+$dropdown-min-width     : 240px !default;
+$dropdown-padding       : 0 !default;
+$dropdown-margin        : 0 !default;
+$dropdown-color         : $text-color-primary !default;
+$dropdown-background    : getColor(primary-background) !default;
+$dropdown-border        : 0 !default;
+$dropdown-border-radius : 6px !default;
+$dropdown-box-shadow    : 0 0 15px 1px rgba(69, 65, 78, .5) !default;
+
+
+
+// profile
+//
+// dropdown
+
+/* profile dropdown */
+
+$profile-dropdown-background     : getColor(primary-background) !default;
+$profile-dropdown-border-radius  : 0 0 6px 6px !default;
+$profile-dropdown-header-padding : 20px 0 !default;
+
+$profile-dropdownArrow-border      : 9px !default;
+$profile-dropdownArrow-borderColor : #763fcd !default;
+
+$profile-dropdown-list-padding  : 0 10px !default;
+$profile-dropdown-list-height   : 40px !default;
+$profile-dropdown-list-fontSize : $font-size-fullPage !default;
+
+
+
+

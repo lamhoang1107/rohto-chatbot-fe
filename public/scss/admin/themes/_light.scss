@@ -1,0 +1,22 @@
+@import 
+	'../../core/abstracts/functions',
+	'../../core/abstracts/variables',
+	'../../core/abstracts/mixins';
+
+$colors-light:(
+	
+);
+
+:root{
+	@each $name, $color in $colors-light{
+		--color-#{$name}: #{$color}
+	}
+
+	--theme: 'light'
+}
+
+.__tt-light-mode{
+	@each $name, $color in $colors-light{
+		--color-#{$name}: #{$color}
+	}
+}

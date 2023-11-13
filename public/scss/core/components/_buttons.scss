@@ -1,0 +1,155 @@
+@import 
+    '../mixins/buttons';
+
+.MuiButton-root.btn{
+    display: flex;
+    align-items: center;
+    border: $btn-border-width solid transparent;
+    text-transform: $btn-transform;
+    font-family: $btn-font-family;
+    font-weight: $btn-font-weight;
+    color: $btn-color;
+    height: $btn-height;
+    cursor: if($enable-pointer-cursor-for-buttons, pointer, default);
+    box-shadow: $btn-boxshadow;
+    padding: $btn-padding;
+    font-size: $btn-font-size;
+    border-radius: 8px;
+    @include transition($btn-transition);
+
+    .MuiButton-label{
+        max-height: 100%;
+        font-size: $btn-font-size;
+    }
+
+    &.font-weight-bold{
+        font-weight: 700;
+    }
+
+    i{
+        margin-right: 5px;
+        @include transition(none);
+    }
+}
+
+.border-0{
+    border: 0;
+}
+
+.MuiButton-root.btn-icon{
+    justify-content: center;
+    padding: 0;
+    min-width: inherit;
+}
+
+.MuiButton-root.btn-light{
+    color: $btn-light-color;
+    background-color: $white;
+    border-color: $btn-light-background;
+}
+
+.MuiButton-root.btn-reset{
+    border: 0;
+    outline: 0;
+    padding: 0;
+    min-width: auto;
+    background: transparent;
+    @include box-shadow(none);
+    @include transition(all 0.2s linear);
+}
+
+.MuiButton-root.btn-disabled{
+    background-color: rgba(#000,.12);
+    color: rgba(#000,.26);
+
+    .sk-fading-circle .sk-circle:before{
+        background-color: rgba(#000,.26);
+    }
+}
+
+//
+// Alternate buttons
+//
+
+@each $color, $value in $theme-colors {
+    @if $color == 'gradiant'{
+        .MuiButton-root.btn-#{$color} {
+            position: relative;
+            border: 0;
+            background: $btn-gradiant;
+            transition: all .2s linear;
+
+            &:hover{
+                // background: $btn-gradiant-hover;
+                @include opacity(.8);
+            }
+
+            span{
+                z-index: 5;
+            }
+
+            &:hover{
+                &::before{
+                    @include opacity(1);
+                }
+            }
+        }
+
+        .MuiButton-root.btn-outline-#{$color} {
+            border: $btn-border-width solid;
+            border-image-slice: 1;
+            border-image-source: $btn-gradiant;
+            background: transparent;
+
+            &::before{
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: $btn-gradiant;
+                z-index: 1;
+                @include transition(opacity 0.3s linear);
+                @include opacity(0);
+            }
+
+            span{
+                position: relative;
+                z-index: 5;
+            }
+
+            &:hover{
+                &::before{
+                    @include opacity(1);
+                }
+            }
+        }
+    } @else {
+        .MuiButton-root.btn-#{$color} {
+            @include button-variant($value,$value...);
+        }
+
+        .MuiButton-root.btn-outline-#{$color} {
+            @include button-outline-variant($value);
+        }
+
+        .MuiButton-root.btn-lightColor-#{$color} {
+            @include button-light-variant($value);
+
+            &:hover{
+                .sk-fading-circle.red .sk-circle:before{
+                    background-color: #fff;
+                }
+            }
+        }
+
+        .MuiButton-root.btn-hover-#{$color} {
+            @include button-hover-variant($value);
+        }
+
+        .MuiButton-root.btn-active-#{$color} {
+            @include button-active-variant($value);
+        }
+    }
+}

@@ -1,0 +1,17 @@
+@import 
+	'../../core/abstracts/variables';
+
+#footer{
+	background-color: getColor(background-primary);
+	padding: 20px 0;
+	margin-top: auto;
+	display: flex;
+	@include transition(all 0.2s linear);
+	>div{
+		justify-content: space-between;
+	}
+	.footerCopyright{
+		font-size: $font-size-body;
+		color: getColor(txt-primary);
+	}
+}

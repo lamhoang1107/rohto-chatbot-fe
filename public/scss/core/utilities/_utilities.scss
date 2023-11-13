@@ -1,0 +1,32 @@
+@mixin background-opacity($color, $opacity: 0.3) {
+    background: $color; /* The Fallback */
+    background: rgba($color, $opacity);
+}
+
+@each $color, $value in $theme-colors {
+
+    .text-#{$color} {
+        color: $value !important;
+    }
+
+    .text-border-#{$color} {
+        color: $value !important;
+        padding: 5px 15px 4px;
+        background: $color;
+        border: 1px solid $value !important;
+
+        @if $color != 'gradiant'{
+            background: rgba($value,.15);
+        }
+    }
+
+    .bg-#{$color}{
+    	background-color: $value !important;
+    	color: #fff !important;
+    }
+
+    .badge-#{$color}{
+    	background-color: $value !important;
+    	color: #fff !important;
+    }
+}

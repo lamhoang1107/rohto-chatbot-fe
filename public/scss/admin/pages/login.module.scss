@@ -1,0 +1,228 @@
+@import 
+	'../../core/abstracts/variables';
+
+.MuiTouchRipple-child {
+  	background-color: getColor(fillSvg) !important;
+}
+
+#tsparticles{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+}
+
+#pageLogin{
+	width: 100%;
+	height: 100vh;
+	#loginFormSignIn,#loginFormSignUp,#loginFormForgot{
+		display: none;
+
+		&.show{
+			display: block;
+		}
+	}
+	.loginForm{
+		width: 470px;
+		max-width: calc(100% - 30px);
+		color: getColor(primary-text);
+
+		.pageLoginLogo{
+			margin-bottom: 24px;
+			img{
+				width: 150px !important;
+			}
+		}
+
+		.box{
+			background-color: #fff;
+			padding: 32px;
+			@include border-radius(8px);
+			@include box-shadow(0 .1rem 1rem .25rem rgba(0,0,0,.05));
+
+			.formGroup{
+				display: flex;
+				margin-bottom: 20px;
+    			align-items: center;
+    			position: relative;
+
+    			[class*="error"]{
+
+    				[class^="MuiInputLabel-root"]{
+    					color: $danger !important;
+    				}
+
+    				[class*="Mui-focused"]{
+   						color: $danger !important;
+
+    					fieldset{
+	    					border-color: $danger !important;
+	    				}
+    				}
+
+    				fieldset{
+    					border-color: $danger !important;
+    				}
+
+    				[class^="MuiFormHelperText-root"]{
+    					color: $danger !important;
+    					font-size: .8rem;
+    				}
+
+					[class^="JoyFormHelperText-root"]{
+    					color: $danger !important;
+    					font-size: 1.2rem;
+    				}
+    			}
+
+				[class*="JoyTextField-root"]{
+					width: 100%;
+					label{
+						font-size: 14px;
+						font-weight: 500;
+						margin-bottom: 5px;
+					}
+				}
+
+				[class*="JoyInput-root"]{
+					height: 44px;
+					font-size: 16px;
+					border-color: getColor(primary-border);
+					padding: 0 16px;
+					color: getColor(secondary-text);
+					input{
+						&::placeholder{
+							color: getColor(secondary-text);
+						}
+					}
+					svg{
+						width: 20px;
+						height: 20px;
+					}
+				}
+				
+			}
+
+			[class*="btn"]{
+				height: 44px;
+				font-size: 1.5rem !important;
+				@include border-radius(8px);
+			}
+
+			[class*="cbx"]{
+				background-color: var(--color-secondary-background);
+			}
+
+			[class^="sk-fading-circle"]{
+				margin-left: 10px;
+			}
+
+			[class*="JoyButton-root"]{
+				height: 44px;
+				font-size: 16px;
+				padding: 0 16px;
+			}
+
+			[class*="JoyButton-variantContained"]{
+				color: #fff;
+				background-color: $primary;
+				margin-top: 20px;
+				&:hover{
+					background-color: #183FBA;
+				}
+			}
+
+			[class*="JoyButton-variantOutlined"]{
+				margin-top: 16px;
+				color: getColor(secondary-text);
+				text-transform: initial;
+				width: 100%;
+				border-color: getColor(primary-border);
+				&:hover{
+					background: #F9FAFB;
+				}
+			}
+
+			[class*="JoyCheckbox-root"]{
+				label{
+					font-size: 14px;
+					font-weight: 500;
+				}
+				input[type=checkbox]{
+					width: 16px;
+					height: 16px;
+				}
+				--Checkbox-size: 1.5rem;
+			}
+
+		}
+
+		.LoginHead{
+			margin-bottom: 32px;
+			text-align: center;
+			h3{
+				font-size: 3rem;
+				color: getColor(title-text);
+				font-weight: 600;
+				text-transform: capitalize;
+				margin-bottom: 10px;
+			}
+			p{
+				color: getColor(secondary-text);
+				font-size: 1.6rem;
+				font-weight: 400;
+			}
+		}
+
+		.forgotText{
+			color: #1F4DE2;
+			cursor: pointer;
+			font-size: 14px;
+			font-weight: 500;
+
+			&:hover{
+				opacity: 0.8;
+			}
+
+			&.primary{
+				color: #1F4DE2;
+
+				&:hover{
+					text-decoration: underline;
+				}
+			}
+		}
+
+		.textError{
+			color: $primary;
+			font-size: 1.1rem;
+			margin-bottom: 10px;
+			visibility: hidden;
+			position: relative;
+			top: 5px;
+			@include opacity(0);
+			@include transition(all 0.2s linear);
+
+			&.show{
+				visibility: inherit;
+				@include opacity(1);
+			}
+		}
+
+		.boxBottom{
+			background-color: #022956;
+			padding: 35px;
+
+			[class*="btn"]{
+				font-size: 1.5rem !important;
+				@include border-radius(8px);
+			}
+
+		}
+	}
+	.btn-google{
+		width: 100%;
+	}
+}
+

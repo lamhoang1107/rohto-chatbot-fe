@@ -1,0 +1,129 @@
+@import '../../core/abstracts/variables';
+
+.dropup,
+.dropright,
+.dropdown,
+.dropleft {
+    position: relative;
+
+    [class^="MuiButton-root"]{
+        font-size: 1.4rem !important;
+    }
+}
+
+.dropdownMenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    text-align: left;
+    background-clip: padding-box;
+    z-index: $zindex-dropdown;
+    min-width: $dropdown-min-width;
+    padding: $dropdown-padding;
+    margin: $dropdown-margin; // override default ul
+    color: $dropdown-color;
+    background-color: $dropdown-background;
+    border: $dropdown-border;
+    @include border-radius($dropdown-border-radius);
+    @include box-shadow($dropdown-box-shadow);
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+        .dropdownMenu#{$infix}Left {
+            right: auto;
+            left: 0;
+        }
+
+        .dropdownMenu#{$infix}Right {
+            right: 0;
+            left: auto;
+        }
+    }
+}
+
+.profileDropdown{
+    position: relative;
+    background-color: $profile-dropdown-background;
+    @include border-radius($profile-dropdown-border-radius);
+
+    &.profileDropdownArrow{
+
+        &::before{
+            position: absolute;
+            content: '';
+            top: -$profile-dropdownArrow-border;
+            right: $profile-dropdownArrow-border;
+            border-bottom: $profile-dropdownArrow-border solid $profile-dropdownArrow-borderColor;
+            border-left: $profile-dropdownArrow-border solid transparent;
+            border-right: $profile-dropdownArrow-border solid transparent;
+        }
+    }
+
+    .profileDropdownHeader{
+        padding: 20px 0;
+
+        img{
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+        }
+
+        .info{
+
+            h6{
+                font-size: 1.8rem;
+                text-transform: capitalize;
+                color: #fff;
+            }
+
+            p{
+                color: #fff;
+                font-size: 1.3rem;
+                text-transform: capitalize;
+            }
+        }
+    }
+
+    .profileDropdownList{
+        display: flex;
+        flex-flow: column;
+        padding-left: 0;
+
+        li{
+            border-bottom: 1px dotted getColor(primary-border);
+
+            &:last-child{
+                border-bottom: 0;
+            }
+            
+            a,&.liNoneLink{
+                display: flex;
+                padding: $profile-dropdown-list-padding;
+                height: $profile-dropdown-list-height;
+                align-items: center;
+                font-size: $profile-dropdown-list-fontSize;
+
+                i{
+                    font-size: 1.6rem;
+                    margin-right: 10px;
+                    width: 24px;
+                }
+            }
+
+            [class*="MuiTouchRipple-root"]{
+                display: none;
+            }
+
+            [class*="Mui-checked"] {
+                color: $primary;
+
+                +[class*="MuiSwitch-track"]{
+                    background-color: $primary;
+                }
+            }
+        }
+    }
+}

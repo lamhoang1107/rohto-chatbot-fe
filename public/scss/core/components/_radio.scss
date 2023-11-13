@@ -1,0 +1,14 @@
+
+.MuiRadio-root{
+
+    svg{
+        color: $secondary-text;
+    }
+
+    &.Mui-checked{
+        svg{
+            color: $primary;
+        }
+    }
+}
+

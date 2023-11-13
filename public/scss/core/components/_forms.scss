@@ -1,0 +1,619 @@
+.form-root{
+    flex: 1 1 auto;
+    padding: 0 0 0 20px;
+
+    ._r{
+        margin-bottom: 20px;
+
+        &:last-child{
+            margin-bottom: 0;
+        }
+
+        .formLabel{
+            color: $secondary-text;
+        }
+    }
+
+    .scrollbar-container{
+        padding: 20px 0;
+        padding-right: 20px;
+    }
+
+    .MuiFormControlLabel-root{
+
+        .MuiFormControlLabel-label{
+            color: $primary-text;
+        }
+    }
+
+    .MuiSwitch-root{
+        margin-left: 5px;
+
+        .MuiSwitch-switchBase{
+            color: $secondary-background;
+
+
+            +.MuiSwitch-track{
+                background-color: $primary-text;
+            }
+
+            &.Mui-checked{
+                color: $primary;
+
+                +.MuiSwitch-track{
+                    background-color: $primary;
+                }
+            }
+        }
+    }
+
+    .MuiSlider-root{
+        height: 3px;
+        color: $primary;
+
+        .MuiSlider-track{
+            border: 0;
+        }
+
+        .MuiSlider-thumb{
+            width: 15px;
+            height: 15px;
+
+            &:hover{
+                box-shadow: inherit;
+            }
+
+            &[data-index="0"]{
+                @include translate(0,-50%);
+            }
+
+            &[data-index="1"]{
+                @include translate(-15px,-50%);
+            }
+        }
+    }
+
+
+    .MuiTextField-root{
+        &:focus,
+        &:focus-visible,
+        &:focus-within {
+            .MuiInputBase-root>fieldset {
+                border: 1px solid #2D5DE6 !important;
+                box-shadow: 0px 0px 0px 4px #d1e0ff;
+            }
+        }
+        &.inputIcon{
+            // background-color: $secondary-background;
+            @include border-radius(4px);
+
+            .MuiOutlinedInput-input{
+                padding-left: 0 !important;
+            }
+        }
+        width: 100%;
+        .MuiOutlinedInput-input{
+            padding: 7.5px 14px;
+            // background-color: $secondary-background;
+            border: 1px solid $secondary-background !important;
+            color: $secondary-text;
+            @include border-radius(4px);
+            font-weight: 400;
+        }
+
+        .MuiOutlinedInput-notchedOutline{
+            border-color: transparent !important;
+        }
+    }
+
+    .frmControl{
+        padding: 9px 14px;
+        // background-color: $secondary-background;
+        border: 1px solid $secondary-background !important;
+        color: $secondary-text;
+        width: 100%;   
+        @include border-radius(4px);
+        font-family: "Roboto", sans-serif !important;
+        font-weight: 400;
+        outline: 0;
+        border: 0;        
+    }
+
+    .formCheckInline{
+        flex-direction: row !important;
+
+        span.MuiFormControlLabel-label{
+            position: relative;
+            top: 2px;
+        }
+    }
+
+    textarea{
+        resize: none;
+        height: 120px;
+    }
+
+    .avatarUpload{
+        position: relative;
+
+        .MuiFormHelperText-root{
+            font-size: 0.75rem;
+            margin-top: 3px;
+        }
+
+        &.error{
+
+            .img{
+                border: 1px solid $danger;
+            }
+        }
+
+        .img{
+            width: 150px;
+            height: 150px;
+            position: relative;
+            overflow: hidden;
+            @include border-radius(4px);
+
+            &::before{
+                content: '';
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(#000,.4);
+                position: absolute;
+                z-index: 5;
+                @include opacity(0);
+                @include transition(all .2s linear);
+            }
+
+            .btnInputFile{
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                z-index: 6;
+                height: 40px;
+                width: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding-left: 3px;
+                background-color: rgba(#fff,.8);
+                @include border-radius(50%);
+                @include transform(translate(-50%,-50%) scale(0));
+                @include transition(all .3s linear);
+
+                i{
+                    font-size: 16px;
+                    color: $primary;
+                }
+            }
+            .btndowload{
+                top: 80%;
+                padding-left: 0;
+            }
+
+            &:hover,&.show{
+
+                &::before{
+                    @include opacity(1);
+                }
+
+                .btnInputFile{
+                    @include transform(translate(-50%,-50%) scale(1));
+                }
+            }
+        }
+
+        .inputFile{
+            display: none;
+        }
+    }
+
+    .fileUpload{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        .MuiFormHelperText-root{
+            font-size: 0.75rem;
+            margin-top: 3px;
+        }
+
+        a{
+            text-decoration: underline !important;
+            font-size: 13px;
+        }
+
+        input {
+            display: none;
+
+        }
+
+        Button {
+            max-width: 30%;
+            margin: 0px 0px 0px 0px;   
+        }
+        &.error{
+
+            .img{
+                border: 1px solid $danger;
+            }
+        }
+
+    }
+
+
+    .multi-image{
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+
+        .MuiFormHelperText-root{
+            font-size: 0.75rem;
+            margin-top: 3px;
+        }
+
+        &.error{
+
+            .img{
+                border: 1px solid $danger;
+            }
+        }
+
+        .img{
+            width: 140px;
+            height: 140px;
+            position: relative;
+            overflow: hidden;
+            margin: 5px;
+            @include border-radius(4px);
+
+            &::before{
+                content: '';
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(#000,.4);
+                position: absolute;
+                z-index: 5;
+                @include opacity(0);
+                @include transition(all .2s linear);
+            }
+
+            .btnInputFile{
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                z-index: 6;
+                height: 40px;
+                width: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding-left: 3px;
+                background-color: rgba(#fff,.8);
+                @include border-radius(50%);
+                @include transform(translate(-50%,-50%) scale(0));
+                @include transition(all .3s linear);
+
+                i{
+                    font-size: 16px;
+                    color: $primary;
+                }
+            }
+
+            &:hover,&.show{
+
+                &::before{
+                    @include opacity(1);
+                }
+
+                .btnInputFile{
+                    @include transform(translate(-50%,-50%) scale(1));
+                }
+            }
+        }
+
+        .inputFile{
+            display: none;
+        }
+    }
+
+    .p-0{
+
+        .MuiInputBase-root{
+            padding: 0;
+        }
+    }
+
+    .MuiFormHelperText-root{
+        position: absolute;
+        left: 0;
+        top: 100%;
+        color: $danger;
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    .Mui-error{
+
+        .MuiInputBase-input{
+            border: 1px solid $danger !important;
+        }
+    }
+
+    .MuiAutocomplete-root{
+
+        .MuiInputBase-root{
+            padding: 0;
+            // background-color: $secondary-background;
+            border: 1px solid $secondary-background !important;
+
+            .MuiInputBase-input{
+                background: transparent;
+                border: 0 !important;
+                padding: 7.5px 14px;
+            }
+
+            .MuiAutocomplete-endAdornment{
+                top: 50%;
+                @include translate(0,-50%);
+            }
+        }
+    }
+    .hidden{
+        display: none;
+    }
+    .formSearch{
+        padding: 0 12px;
+    }
+}
+
+.tags-readOnly .MuiInputBase-root{
+    background-color: transparent;
+    border: 1px solid transparent !important;
+}
+
+.tags-readOnly .MuiAutocomplete-endAdornment{
+    display: none;
+}
+
+.tags-readOnly fieldset{
+    border: 0;
+}
+
+.tags-readOnly .MuiOutlinedInput-root.MuiInputBase-sizeSmall{
+    padding: 0;
+}
+
+.tags-readOnly .MuiOutlinedInput-root{
+    cursor: default;
+}
+
+.formAdd-root{
+
+    .formAdd-head{
+
+        .formAdd-head__input{
+            display: flex;
+        }
+
+        .formAdd-head__note{
+            font-size: .9rem;
+        }
+    }
+
+    .formAdd-body{
+        margin-top: 20px;
+
+        .item{
+            border-bottom: 1px solid getColor(primary-border);
+            display: flex;
+            padding-bottom: 15px;  
+            padding-top: 15px; 
+
+            &:first-child{
+                padding-top: 0;
+            }
+
+            .img{
+                flex: 0 0 auto;
+                width: 50px;
+                height: 50px;
+                margin-right: 10px;
+                position: relative;
+
+                &::after{
+                    position: absolute;
+                    bottom: 10px;
+                    right: -10px;
+                    font-size: 2rem;
+                    width: 20px;
+                    font-family: "Font Awesome 5 Brands";
+                    font-weight: 400;
+                }
+            }
+
+            .info{
+
+                h4{
+                    color: $primary;
+                }
+
+                ul{
+                    display: flex;
+                    margin-top: 0;
+
+                    li{
+                        padding-left: 15px;
+                        position: relative;
+
+                        &::before{
+                            content: '';
+                            position: absolute;
+                            left: 5px;
+                            top: 6px;
+                            width: 3px;
+                            height: 3px;
+                            @include border-radius(50%);
+                            background-color: rgba(#000,.87);
+                        }
+
+                        &:first-child{
+                            padding-left: 0;
+
+                            &::before{
+                                width: 0;
+                            }
+                        }
+
+                        &:last-child{
+                            overflow: hidden;
+                            max-width: 210px
+                        }
+                    }
+                }
+
+                .status{
+                    border: 1px solid getColor(primary-border);
+                    padding: 1px 5px;
+                    display: inline-block;  
+                    font-size: 1rem;    
+                    @include border-radius(3px);
+
+                    &.yes{
+                        border: 1px solid $primary;
+                        color: $primary;
+                    }
+                }
+            }
+
+            .frmCrl{
+                flex: 0 0 auto;
+                width: 150px;
+                margin-left: auto;
+            }
+
+            button{
+                flex: 0 0 auto;
+                width: 35px;
+            }
+        }
+    }
+}
+
+.form-root.formLayout-influencers{
+    [class*="col-"]{
+        width: 100%;
+        justify-content: start !important;
+    }
+
+    .scrollbar-container{
+        padding-top: 0;
+        padding-bottom: 0;
+        width: calc(100% + 20px);
+        max-height: 440px;
+    }
+}
+
+.input-tag .MuiAutocomplete-endAdornment{
+    display: none;
+}
+
+.MuiAutocomplete-root:not(.input-tag){
+
+    input{
+        cursor: pointer;
+    }
+}
+
+
+.formControl{
+
+    .react-tagsinput{
+        // background-color: getColor(secondary-background);
+        border: 1px solid getColor(secondary-background);
+        @include border-radius(4px);
+        padding-top: 3px;
+
+        .react-tagsinput-tag{
+            background-color: rgba(0, 0, 0, 0.08);
+            border-radius: 13px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            color: rgba(0, 0, 0, 0.87);
+            padding: 2px 8px 0;
+            height: 24px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 400;
+            font-family: 'Inter', sans-serif !important;
+            
+            a{
+
+                &::before{
+                    width: 13px;
+                    height: 13px;
+                    line-height: 13px;
+                    text-align: center;
+                    background-color: rgba(0, 0, 0, 0.26);
+                    color: rgba(#fff,.8);
+                    font-size: 1.2rem;
+                    font-weight: 100;
+                    display: block;
+                    @include border-radius(50%);
+                    position: relative;
+                    top: -1px;
+                    left: 4px;
+                }
+
+                &:hover{
+
+                    &::before{
+                        background-color: rgba(#000,.4);
+                    }
+                }
+            }
+        }
+
+        .react-tagsinput-input{
+            margin-bottom: 5px;
+        }
+    }
+}
+
+img.objectFit{
+    object-fit: contain;
+}
+
+.ck-editor {
+    display: flex;
+    flex-direction: column;
+  
+    .ck-editor__top {
+      flex-shrink: 1;
+    }
+  
+    .ck-editor__main {
+      flex-grow: 1;
+      position: relative;
+  
+      .ck-editor__editable, .ck-source-editing-area {
+        max-height: 600px;
+        min-height: 300px !important;
+      }
+    }
+  }
+
+.ck-body-wrapper {
+    z-index: 10000;
+
+    .ck-toolbar-container {
+        z-index: 9999 !important;
+    }
+}
+

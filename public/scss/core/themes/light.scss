@@ -1,0 +1,46 @@
+@import 
+	'../abstracts/functions',
+	'../abstracts/variables';
+
+$colors-light:(
+	bg-body: #F9FAFB,
+	primary-background: #fff,
+	primary-text: #344054,
+	primary-border: #E5E7EB,
+	secondary-text: #667085,
+	secondary-background: #e7e7e7,
+	third-text: #a1a5b7,
+	aside-background: #fff,
+	aside-brand-background: #fff,
+	scrollbarThump: #606060,
+	scrollbarThumpHover: #909090,
+	popup-background: #787a7b,
+	popup-scrollbarThump: #303031,
+	popup-scrollbarThumpHover: #a8a8a8,
+	title-text: #101828,
+);
+
+@media (prefers-color-scheme: light){
+	:root{
+		@each $name, $color in $colors-light{
+			--color-#{$name}: #{$color}
+		}
+
+		--theme: 'light'
+	}
+}
+
+:root{
+	@each $name, $color in $colors-light{
+		--color-#{$name}: #{$color}
+	}
+
+	--theme: 'light'
+}
+
+.__tt-light-mode{
+	
+	@each $name, $color in $colors-light{
+		--color-#{$name}: #{$color}
+	}
+}

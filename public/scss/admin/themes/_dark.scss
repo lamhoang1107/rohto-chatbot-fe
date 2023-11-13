@@ -1,0 +1,24 @@
+@import 
+	'../../core/abstracts/functions',
+	'../../core/abstracts/variables',
+	'../../core/abstracts/mixins';
+
+$colors-dark:(
+	
+);
+
+@media (prefers-color-scheme: dark){
+	:root{
+		@each $name, $color in $colors-dark{
+			--color-#{$name}: #{$color}
+		}
+
+		--theme: 'dark'
+	}
+}
+
+.__tt-dark-mode{
+	@each $name, $color in $colors-dark{
+		--color-#{$name}: #{$color}
+	}
+}

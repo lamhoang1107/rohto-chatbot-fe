@@ -1,0 +1,93 @@
+#filter{
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 265px;
+    height: 100vh;
+    background-color: $primary-background;
+    z-index: 1280;
+    @include box-shadow(0 0 50px rgba(#627e9a,.1));
+    @include translate(100%,0);
+    @include transition(all .2s linear);
+
+    &.open{
+        @include translate(0,0);
+    }
+
+    .filterContainer{
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        height: 100%;
+
+        .filterHead{
+            padding: 0 20px;
+            height: 50px;
+            flex: 0 0 50px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            justify-content: space-between;
+            border-bottom: 1px solid $primary-border;
+
+            h4{
+                color: $primary-text;
+                font-size: 1.6rem;
+            }
+
+            .filterClose{
+                width: 25px;
+                height: 25px;
+                background-color: transparent;
+                color: $primary;
+                font-size: 2rem;
+                min-width: 25px;
+                padding: 0;
+                @include box-shadow(inherit);
+                @include border-radius(50%);
+            }
+        }
+
+        .filterBody{
+            height: calc(100% - 120px);
+        }
+
+        .filterFooter{
+            padding: 0 20px;
+            border-top: 1px solid $primary-border;
+            height: 60px;
+            flex: 0 0 60px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+    }
+
+    .dateTime{
+        max-width: 100%;
+    }
+}
+
+#filterOverlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 1200;
+    background-color: rgba(#000,.2);
+    @include opacity(0);
+    @include transition(all .2s linear);
+
+    &.open{
+        display: block;
+        @include opacity(1);
+    }
+}
+
+.MuiPickersDay-today:not(.Mui-selected){
+    border: 0 !important;
+    background-color: rgba($primary,.7) !important;
+    color: #fff !important;
+}

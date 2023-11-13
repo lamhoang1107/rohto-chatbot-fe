@@ -1,0 +1,240 @@
+@import '../abstracts/variables';
+
+#tt-aside{
+	position: $adAside-position;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: $adAside-width;
+	background-color: $adAside-background;
+	z-index: $adAside-zIndex;
+	@include transition(all 0.2s linear);
+
+	#tt-aside__brand{
+		height: $adAsideBrand-height;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: $adAsideBrand-padding;
+		background-color: $adAsideBrand-background;
+
+		.brand-logo{
+			color: #fff !important;
+			text-transform: uppercase;
+			font-size: $adAsideBrand-fontsize;
+			font-weight: 700;
+			@include transition(all .2s linear);
+		}
+
+		svg{
+			width: 22px;
+			height: 22px;
+			margin-right: -2px;
+
+			g [fill]{
+				fill: $adAsideBrand-icon-color;
+			}
+
+			&:hover{
+				g [fill]{
+					fill: $adAsideBrand-icon-color-hover;
+				}
+			}
+		}
+	}
+
+	#tt-aside__menu{
+
+		.tt-scroll{
+			height: calc(100vh - 72px);
+		}
+
+		.menu-nav{
+			margin-top: $adAsideNav-marginTop;
+			padding-bottom: 0;
+
+			.MuiListItem-root,.menu-section{
+				padding: $adAsideNav-padding;
+			}
+
+			.menu-section{
+				text-transform: $adAsideNav-title-transform;
+				font-size: $adAsideNav-title-fontSize;
+				font-family: $adAsideNav-title-family;
+				color: $adAsideNav-title-color;
+				height: $adAsideNav-title-height;
+				position: relative;
+				@include transition(all .2s linear);
+
+				&::before{
+					content: '\f141';
+					position: absolute;
+					left: 50%;
+					top: 50%;
+					color: $adAsideNav-title-color;
+					font-family: $font-icon-pro;
+					font-size: 2rem;
+					@include translate(-50%,-50%);
+					@include transition(all .2s linear);
+					@include opacity(0);
+				}
+			}
+
+			.menu-item{
+				height: $adAsideNav-item-height;
+
+				.menu-icon{
+					display: flex;
+					margin-right: $adAsideNav-item-icon-marginRight;
+
+					svg{
+						width: 24px;
+						height: 24px;
+						margin-left: -3px;
+
+						g [fill]{
+							fill: $adAsideBrand-icon-color;
+						}
+					}
+				}
+
+				.MuiListItemText-root{
+					margin: 0;
+
+					span{
+						color: $adAsideNav-text-color;
+						font-size: $adAsideNav-text-fontSize;
+						font-weight: $adAsideNav-text-fontWeight;
+						@include transition(all .2s linear);
+					}
+				}
+
+				i[class^="fa"]{
+					color: $adAside-icon-color !important;
+					font-size: .9rem;
+				}
+
+				&.menu-item-active,&:hover,&.showSubMenu{
+					background-color: $adAside-bgHoverActive;
+
+					.menu-icon{
+
+						svg{
+
+							g [fill]{
+								fill: $adAside-icon-color-hover;
+							}
+						}
+					}
+
+					.MuiListItemText-root{
+
+						span{
+							color: $adAsideNav-text-color-hover !important;
+						}
+					}
+
+					i[class^="fa"]{
+						color: #fff !important;
+					}
+
+					.menu-bullet-dot{
+						background-color: $adAside-icon-color-hover !important;
+					}
+				}
+
+				&.showSubMenu{
+
+					i{
+						@include rotate(90deg);
+					}
+				}
+			}
+
+			.menu-item__sub{
+
+				.menu-item{
+
+					.MuiListItemText-root span{
+						font-weight: 400;
+					}
+				}
+			}
+
+			.menu-bullet-dot{
+				width: $adAsideNav-bullet-dot-width;
+				height: $adAsideNav-bullet-dot-height;
+				background-color: $adAside-icon-color;
+				margin-left: $adAsideNav-bullet-dot-marginLeft;
+				margin-right: $adAsideNav-bullet-dot-marginRight;
+				@include border-radius(100%);
+				@include transition(all 0.2s linear);
+			}
+		}
+	}
+}
+
+.aside-miniminze:not(.aside-minimize-hover) #tt-aside{
+	width: $adAside-width-minimize;
+
+	#tt-aside__brand{
+
+		.brand-logo{
+			font-size: 0;
+		}
+
+		svg{
+			margin-right: 0;
+			@include rotate(180deg);
+
+			g [fill]{
+				fill: $adAsideBrand-icon-color-hover;
+			}
+		}
+	}
+
+	#tt-aside__menu{
+
+		.menu-nav{
+
+			.menu-section{
+				font-size: 0;
+
+				&::before{
+					@include opacity(1);
+				}
+			}
+
+			.menu-item{
+
+				.MuiListItemText-root{
+
+					span{
+						font-size: 0;
+					}
+				}
+
+				i[class^="fa"]{
+					display: none;
+				}
+			}
+
+			.menu-item__sub{
+				height: 0;
+			}
+		}
+	}
+}
+
+.aside-miniminze #tt-aside{
+
+	#tt-aside__brand{
+
+		svg{
+
+			g [fill]{
+				fill: $adAsideBrand-icon-color-hover;
+			}
+		}
+	}
+}

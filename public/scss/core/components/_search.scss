@@ -1,0 +1,57 @@
+.formSearch{
+    display: flex;
+
+    .block{
+        position: relative;
+        min-width: 180px;
+        border: 1px solid gray;
+        border-radius: 5px;
+        width: 100%;
+        input{
+            background-color: $primary-background;
+            border: 0;
+            font-weight: 500;
+            height: 35px;
+            padding: 0 35px 0 15px;
+            width: 100%;
+            @include border-radius(3px);
+
+            &:focus{
+                outline: none;
+                border: 0;
+            }
+        }
+
+        button{
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 35px;
+            outline: none;
+            border: 0;
+            background: transparent;
+            color: $secondary-text;
+            cursor: pointer;
+            
+
+            i{
+                font-size: 2rem;
+            }
+        }
+    }
+
+    .customSeach{
+        margin-left: 20px;
+    }
+
+    .infoProviderSelect{
+        margin-left: 20px;
+        max-height: 37px;
+        overflow: hidden;
+        .MuiInputBase-root{
+            margin-left: 5px;
+            max-height: 35px;
+        }
+    }
+}

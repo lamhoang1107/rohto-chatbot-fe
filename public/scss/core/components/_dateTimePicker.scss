@@ -1,0 +1,85 @@
+.dateTime{
+	max-width: 200px;
+
+	.MuiInputBase-root{
+		padding-right: 0;
+	}
+
+	.MuiInputAdornment-root{
+		position: absolute;
+		right: 15px;
+	}
+
+	input{
+		&::-webkit-input-placeholder { /* Edge */
+		  color: getColor(primary-text);
+		  @include opacity(1);
+		}
+
+		&:-ms-input-placeholder { /* Internet Explorer 10-11 */
+		  color: getColor(primary-text);
+		  @include opacity(1);
+		}
+
+		&::placeholder {
+		  color: getColor(primary-text);
+		  @include opacity(1);
+		}
+	}
+}
+
+[class*='MuiButtonBase-root-MuiTab-root'].Mui-selected{
+	color: $primary;
+}
+
+.MuiTabs-indicator{
+	background-color: $primary;
+}
+
+.PrivatePickersSlideTransition-root{
+
+	.css-l0iinn{
+		font-size: 1.2rem;
+	}
+
+	.MuiPickersDay-root{
+		font-size: 1.2rem;
+	}
+
+	.MuiPickersDay-root.Mui-selected{
+		border: 0;
+		background-color: $primary;
+		color: #fff;
+	}
+}
+
+.MuiTabs-flexContainer{
+
+	.MuiSvgIcon-root{
+		font-size: 2rem;
+	}
+}
+
+.css-fhpqww{
+
+	.css-12ha4i7,.css-7lip4c,.css-a1rc6s{
+		background-color: $primary;
+	}
+
+	.css-118whkv,.css-2ujp1m{
+		background-color: $primary;
+		border: 16px solid $primary;
+	}
+
+	.css-13go44a-MuiButtonBase-root-MuiIconButton-root,.css-1t8wyba-MuiButtonBase-root-MuiIconButton-root{
+		background-color: $primary;
+	}
+}
+
+.form-root .dateTime .Mui-error .MuiInputBase-input{
+	border: 1px solid transparent !important;
+}
+
+.form-root .dateTime.tt-error .MuiInputBase-input{
+	border: 1px solid $danger !important;
+}

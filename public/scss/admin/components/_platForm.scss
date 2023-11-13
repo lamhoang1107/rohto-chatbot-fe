@@ -1,0 +1,115 @@
+.tabPlatForm{
+    width: calc(100% + 50px);
+    @include translate(-25px,5px);
+    margin-top: 10px;
+
+    .tabPlatForm__head{
+        background-color: getColor(secondary-background);
+
+        ul{
+            display: flex;
+            margin-top: 0;
+
+            li{
+                flex: 1 1;
+                min-height: 40px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                color: getColor(secondary-text);
+                font-size: 1.6rem;
+                @include transition(all .2s linear);
+
+                &.active{
+                    cursor: default;
+                    background-color: $primary;
+                    color: #fff;
+                }
+
+                &:hover{
+                    background-color: $primary;
+                    color: #fff;
+                }
+            }
+        }
+
+        &.abPlatForm__head--text{
+
+            ul{
+
+                li{
+                    font-size: 1.6rem;
+                }
+            }
+        }
+    }
+
+    .tabPlatForm__body{
+        margin-top: 20px;
+        padding: 0 25px;
+
+        .tabPlatFormItem{
+            display: none;
+
+            &.show{
+                display: block;
+            }
+        }
+
+        .form-root{
+            padding-left: 0;
+        }
+    }
+}
+
+.PlatFormList{
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    .item{
+        display: flex;
+        height: 100%;
+        width: 38px;
+        align-items: center;
+        justify-content: center;
+        margin-right: 5px;
+        cursor: pointer;
+        @include border-radius(4px);
+        @include transition(all .2s linear);
+
+        i{
+            font-size: 2rem;
+
+            &.fa-tiktok{
+                color: #000;
+            }
+
+            &.fa-facebook-square{
+                color: #385599;
+            }
+
+            &.fa-youtube{
+                color: #f70000;
+            }
+
+            &.fa-instagram{
+                color: #d81f53;
+            }
+
+            &.fa-twitch{
+                color: #8c44f7;
+            }
+
+            &.fa-twitter{
+                color: #1c96e8;
+            }
+        }
+
+        &:hover,&.active{
+            background-color: #fff;
+            color: $primary;
+        }
+    }
+}

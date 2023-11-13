@@ -1,0 +1,163 @@
+
+$font-size-fullPage: 1.3rem;
+
+// container padding, row margin
+$grid-gutter-width: 50px;
+
+
+
+// Color system
+//
+// system
+
+$green	        : #45bd62;
+$red	        : #f02849;
+$blue	        : #3699ff;
+$orange         : #f7b928 ;
+$gray           : #b5b5c3;
+$gradiant       : linear-gradient(0deg, #223F87 0%, #D7212A 100%);
+$gradiant-hover : linear-gradient(90deg,#901c9c 100%,#5661e1 100%);
+$gg             : #da4b42 !default;
+
+$primary       : #046cbc;
+$secondary     : #D7212A;
+$txt-primary   : #181c32;
+$txt-secondary : #a1a5b7;
+
+
+$theme-colors: () !default;
+$theme-colors: map-merge(
+	(
+		"gg"        : $gg
+	),
+	$theme-colors
+);
+
+
+$height-action : 35px;
+
+//border-radius
+
+$border-radius:               2px !default;
+$border-radius-sm:            3px !default;
+$border-radius-lg:            4px !default;
+$border-radius-pill:          50% !default;
+
+
+// Color light + dark Mode
+//
+// background, text, nav link
+ 
+$bg-body                      : getColor(bg-body); //f0f0f0 - 000
+$bg-primary                   : getColor(bg-primary); // fff - 1b1d22
+$bg-secondary                 : getColor(bg-secondary); // fff - 121212
+$bg-third                     : getColor(bg-third); // f0f0f0 - 33373E
+$bg-four                      : getColor(bg-four); // d4d4d4 - 393939
+$bg-five                      : getColor(bg-five); // fff - 7d7d7d
+$bg-six                       : getColor(bg-six); // d4d4d4 - 2d2f34
+$bg-sevent                    : getColor(bg-sevent); // f0f0f0 - 21232b
+$bg-eight                     : getColor(bg-eight); // f0f0f0 - 181B20
+$bg-night                     : getColor(bg-night); // fff - 21232B
+$bg-ten                       : getColor(bg-ten); // f0f0f0 - 121212
+$bg-ele                       : getColor(bg-ele); // d4d4d4 - 7d7d7d
+$bg-twe                       : getColor(bg-twe); // fff - 424242
+$text-primary                 : getColor(text-primary); // 393939 - fff
+$text-secondary               : getColor(text-secondary); // 393939 - d4d4d4
+$text-third                   : getColor(text-third); // 7d7d7d - d4d4d4
+$text-four                    : getColor(text-four); // 7d7d7d - fff
+$text-five                    : getColor(text-five); // 000 - d4d4d4
+$text-six                     : getColor(text-six); // 3 3 3 - d4d4d4
+$text-sevent                  : getColor(text-sevent); // 3 3 3 - fff
+$text-eight                   : getColor(text-eight); // 606060 - 7d7d7d
+
+$nav-link-color-active        : getColor(nav-link-color-active);
+$lineDM                       : getColor(lineDM);
+$lineChat     		          : getColor(lineChat);
+$line-thrid                   : getColor(line-thrid);
+$banner-gradiant              : getColor(banner-gradiant);
+$bg-cardBody                  : getColor(bg-cardBody);
+$bg-MuiSkeleton               : getColor(bg-MuiSkeleton);
+$bg-comment-textarea          : getColor(bg-comment-textarea);
+$bg-selected-list-country     : getColor(bg-selected-list-country);
+$bg-focus-list-country        : getColor(bg-focus-list-country);
+$MuiFilledInput-border-bottom : getColor(MuiFilledInput-border-bottom);
+
+$enable-dark-mode : false;
+
+
+
+// Typography
+//
+// font
+
+$font-family-base  : 'Inter', sans-serif;
+$font-family-bold  : 'Inter', sans-serif;
+$font-family-light : 'Inter', sans-serif;
+$font-icon		   : 'Font Awesome 5 Duotone';
+$font-secondary	   : 'San Francisco Text';
+
+$font-size-body	      : 1.3rem;
+$headings-font-weight : 700;
+$container-max-width  : 1490px;
+
+
+// Link
+//
+// text
+ 
+$link-color       : #fff;
+$link-hover-color : #fff !default;
+
+
+
+// Toolbar
+//
+// border, height, background
+ 
+$toolbar-height    : 0px;
+$toolbar-borderTop : getColor(primary-border);
+$toolbar-bg        : getColor(primary-background);
+
+
+
+// ToolSearch
+//
+// height
+
+$toolSearch-paddingTop    : 9px;
+$toolSearch-height        : 50px + $toolSearch-paddingTop;
+
+
+
+// Calc Sticky
+//
+// 
+$calcStickyTh : $toolSearch-height;
+
+
+
+$adAside-icon-color-hover: #046cbc;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

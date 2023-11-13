@@ -1,0 +1,38 @@
+.menuDropdown{
+
+    .MuiPopover-paper{
+        width: 180px;
+        background-color: $primary-background;
+        @include box-shadow(0 0 10px rgba(#627e9a,.1));
+        @include border-radius(4px);
+
+        .menuList{
+            padding: 8px 0;
+
+            .menuItem{
+                font-size: $font-size-fullPage;
+                padding: 0 8px;
+
+                .menuSelect{
+                    padding: 7px 10px;
+                    color: $primary-text;
+                    background-color: transparent;
+                    cursor: pointer;
+                    @include border-radius(3px);
+                    @include transition(all .2s linear);
+
+                    &:hover{
+                        background-color: rgba($primary,.1);
+                        color: $primary;
+                    }
+                }
+
+                .menuTitle{
+                    padding: 7px 10px;
+                    color: $secondary-text;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}

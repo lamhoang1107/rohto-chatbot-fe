@@ -1,0 +1,42 @@
+@import '../../core/abstracts/variables';
+
+.dropup,
+.dropright,
+.dropdown,
+.dropleft {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    text-align: left;
+    background-clip: padding-box;
+    z-index: $zindex-dropdown;
+    min-width: $dropdown-min-width;
+    padding: $dropdown-padding;
+    margin: $dropdown-margin; // override default ul
+    color: $dropdown-color;
+    background-color: $dropdown-background;
+    border: $dropdown-border;
+    @include border-radius($dropdown-border-radius);
+    @include box-shadow($dropdown-box-shadow);
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+        .dropdown-menu#{$infix}-left {
+            right: auto;
+            left: 0;
+        }
+
+        .dropdown-menu#{$infix}-right {
+            right: 0;
+            left: auto;
+        }
+    }
+}
+

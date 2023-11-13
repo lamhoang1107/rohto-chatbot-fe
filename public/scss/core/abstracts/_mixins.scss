@@ -1,0 +1,217 @@
+/*!
+    Import mixins to bootstrap scss
+    - Breakpoints
+*/
+
+// Utilities
+@import "core/mixins/breakpoints";
+
+/*!
+    - Opacity
+    - Animations
+    - Transformations
+    - Border radius
+    - Calc
+*/
+
+// Font
+
+@mixin font-weight($font:no){
+    @if $font==bold{
+        font-family: $font-family-bold;
+    }
+
+    @else if $font==light{
+        font-family: $font-family-light;
+    }
+
+    @else{
+        font-family: $font-family-base;
+    }
+}
+
+// Opacity
+@mixin opacity($opacity, $important: no) {
+    @if $important==important {
+        $IEValue: $opacity*100;
+        opacity: $opacity !important;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="+$IEValue+")" !important;
+        filter: alpha(opacity=$IEValue) !important;
+    }
+
+    @else {
+        $IEValue: $opacity*100;
+        opacity: $opacity;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="+$IEValue+")";
+        filter: alpha(opacity=$IEValue);
+    }
+}
+
+//Animations
+@mixin animation($animation) {
+    -webkit-animation: $animation;
+    -o-animation: $animation;
+    animation: $animation;
+}
+
+@mixin animation-name($name) {
+    -webkit-animation-name: $name;
+    animation-name: $name;
+}
+
+@mixin animation-duration($duration) {
+    -webkit-animation-duration: $duration;
+    animation-duration: $duration;
+}
+
+@mixin animation-timing-function($timing-function) {
+    -webkit-animation-timing-function: $timing-function;
+    animation-timing-function: $timing-function;
+}
+
+@mixin animation-delay($delay) {
+    -webkit-animation-delay: $delay;
+    animation-delay: $delay;
+}
+
+@mixin animation-iteration-count($iteration-count) {
+    -webkit-animation-iteration-count: $iteration-count;
+    animation-iteration-count: $iteration-count;
+}
+
+@mixin animation-direction($direction) {
+    -webkit-animation-direction: $direction;
+    animation-direction: $direction;
+}
+
+@mixin animation-fill-mode($fill-mode) {
+    -webkit-animation-fill-mode: $fill-mode;
+    animation-fill-mode: $fill-mode;
+}
+
+// Transformations
+@mixin transition($value) {
+    -webkit-transition: $value;
+    -ms-transition: $value; // IE9 only
+    -o-transition: $value;
+    transition: $value;
+}
+
+@mixin scale($ratio...) {
+    -webkit-transform: scale($ratio);
+    -ms-transform: scale($ratio); // IE9 only
+    -o-transform: scale($ratio);
+    transform: scale($ratio);
+}
+
+@mixin scaleX($ratio) {
+    -webkit-transform: scaleX($ratio);
+    -ms-transform: scaleX($ratio); // IE9 only
+    -o-transform: scaleX($ratio);
+    transform: scaleX($ratio);
+}
+
+@mixin scaleY($ratio) {
+    -webkit-transform: scaleY($ratio);
+    -ms-transform: scaleY($ratio); // IE9 only
+    -o-transform: scaleY($ratio);
+    transform: scaleY($ratio);
+}
+
+@mixin skew($x, $y) {
+    -webkit-transform: skewX($x) skewY($y);
+    -ms-transform: skewX($x) skewY($y); // See https://github.com/twbs/bootstrap/issues/4885; IE9+
+    -o-transform: skewX($x) skewY($y);
+    transform: skewX($x) skewY($y);
+}
+
+@mixin translate($x, $y) {
+    -webkit-transform: translate($x, $y);
+    -ms-transform: translate($x, $y); // IE9 only
+    -o-transform: translate($x, $y);
+    transform: translate($x, $y);
+}
+
+@mixin translate3d($x, $y, $z) {
+    -webkit-transform: translate3d($x, $y, $z);
+    transform: translate3d($x, $y, $z);
+}
+
+@mixin rotate($degrees) {
+    -webkit-transform: rotate($degrees);
+    -ms-transform: rotate($degrees); // IE9 only
+    -o-transform: rotate($degrees);
+    transform: rotate($degrees);
+}
+
+@mixin rotateX($degrees) {
+    -webkit-transform: rotateX($degrees);
+    -ms-transform: rotateX($degrees); // IE9 only
+    -o-transform: rotateX($degrees);
+    transform: rotateX($degrees);
+}
+
+@mixin rotateY($degrees) {
+    -webkit-transform: rotateY($degrees);
+    -ms-transform: rotateY($degrees); // IE9 only
+    -o-transform: rotateY($degrees);
+    transform: rotateY($degrees);
+}
+
+@mixin transform-origin($origin) {
+    -webkit-transform-origin: $origin;
+    -moz-transform-origin: $origin;
+    -ms-transform-origin: $origin; // IE9 only
+    transform-origin: $origin;
+}
+
+@mixin transform($transforms) {
+    -moz-transform: $transforms;
+    -o-transform: $transforms;
+    -ms-transform: $transforms;
+    -webkit-transform: $transforms;
+    transform: $transforms;
+}
+
+// Border radius
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+}
+
+// Calc
+@mixin calc($property, $expression) {
+    #{$property}: -moz-calc(#{$expression});
+    #{$property}: -webkit-calc(#{$expression});
+    #{$property}: calc(#{$expression});
+}
+
+// Box shadow
+@mixin box-shadow($shadows...) {
+    -moz-box-shadow: $shadows;
+    -webkit-box-shadow: $shadows;
+    box-shadow: $shadows;
+}
+
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+        @content; 
+    }
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+    @-ms-keyframes #{$name} {
+        @content;
+    }
+    @keyframes #{$name} {
+        @content;
+    } 
+}
+
+@mixin placeholder {
+    ::-webkit-input-placeholder {@content}
+    :-moz-placeholder           {@content}
+    ::-moz-placeholder          {@content}
+    :-ms-input-placeholder      {@content}  
+}

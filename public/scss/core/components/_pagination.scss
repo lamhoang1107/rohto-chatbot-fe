@@ -1,0 +1,16 @@
+
+.MuiPaginationItem-root{
+	color: $primary-text !important;
+	font-size: $font-size-fullPage !important;
+
+    &:not(.MuiPaginationItem-ellipsis):hover{
+        background-color: rgba($primary,.8);
+        color: #fff !important;
+    }
+
+    &.Mui-selected{
+        background-color: $primary !important;
+        color: #fff !important;
+        cursor: default;
+    }
+}

@@ -1,0 +1,71 @@
+
+.selectCustom{
+
+    .MuiInputBase-root {
+        &:focus,
+        &:focus-visible,
+        &:focus-within {
+          fieldset {
+            border: 1px solid #2d5de6 !important;
+            box-shadow: 0px 0px 0px 4px #d1e0ff;
+        }
+        }
+      }
+    .MuiOutlinedInput-root{
+
+        .MuiSelect-outlined{
+            padding: 7.5px 14px;
+            // border: 1px solid $secondary-background;
+            background-color: $primary-background;
+            color: $secondary-text;
+            font-weight: 400;
+        }
+
+        .Mui-focused.MuiOutlinedInput-notchedOutline{
+            border-color: #2D5DE6;
+        }
+
+        svg{
+            color: getColor(secondary-text);
+            font-size: 2.3rem;
+
+            path{
+                font-size: 2.3rem;
+            }
+        }
+    }
+
+    &.bgGray{
+
+        .MuiOutlinedInput-root{
+
+            .MuiSelect-outlined{
+                background-color: $secondary-background;
+            }
+        }
+    }
+}
+
+// .MuiMenu-paper{
+//     background-color: $primary-background;
+// }
+
+.MuiList-root{
+    // background-color: $primary-background;
+
+    .MuiMenuItem-root{
+        font-size: $font-size-fullPage;
+        color: $secondary-text;
+        background-color: transparent;
+
+        &:hover{
+            background-color: rgba($primary,1);
+            color: #fff;
+        }
+
+        &.Mui-selected:not(.Mui-disabled){
+            background-color: $primary;
+            color: #fff; 
+        }
+    }
+}

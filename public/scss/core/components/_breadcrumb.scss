@@ -1,0 +1,56 @@
+@import '../abstracts/variables';
+
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    padding: $breadcrumb-padding-y $breadcrumb-padding-x;
+    font-size: $breadcrumb-font-size;
+    list-style: none;
+    background-color: $breadcrumb-bg;
+    @include border-radius($breadcrumb-border-radius);
+}
+
+.breadcrumb__item {
+    position: relative;
+
+    a{
+        color: $breadcrumb-active-color;
+        font-weight: $breadcrumb-link-fontWeight;
+
+        &:hover{
+            color: $primary;
+        }
+
+        i{
+            font-weight: $breadcrumb-link-fontWeight;
+        }
+    }
+
+    +.breadcrumb__item {
+        padding-left: $breadcrumb-item-padding;
+
+        &::before {
+            position: absolute;
+            line-height: 0;
+            content: $breadcrumb-divider;
+            font-weight: $breadcrumb-divider-fontWeight;
+            left: $breadcrumb-divider-left;
+            top: $breadcrumb-divider-top;
+            color: $breadcrumb-divider-color;
+            font-family: $font-icon-pro;
+            font-size: $breadcrumb-divider-fontSize;
+        }
+    }
+
+    &:hover{
+
+        a{
+            text-decoration: $breadcrumb-link-hover-decoration;
+        }
+    }
+
+    &.active {
+        color: $breadcrumb-active-color;
+        @include opacity(.7);
+    }
+}

@@ -1,0 +1,53 @@
+
+.tooltip-Flatform{
+	margin-top: 0;
+	max-width: 300px;
+	max-height: 100px;
+
+    li{
+    	display: flex;
+    	padding: 3px 10px;
+
+    	.tooltip-Flatform__name{
+    		flex: 1;
+    		display: -webkit-box;
+		    -webkit-box-orient: vertical;
+		    -webkit-line-clamp: 1;
+		    overflow: hidden;
+		    margin-right: 10px;
+    	}
+
+    	.tooltip-Flatform__status{
+    		margin-left: auto;
+    		min-width: 110px;
+    		text-align: right;
+    	}
+    }
+}
+
+.tooltipPopper-Flatform{
+
+	.scrollbar-container{
+		max-height: 275px;
+	}
+
+	.ps__rail-x{
+		display: none !important;
+	}
+
+	.ps__rail-y{
+		right: -2px;
+
+		.ps__thumb-y{
+			background-color: rgba(#fff,.8);
+		}
+	}
+}
+
+.MuiTooltip-popper[data-popper-placement*="top"] .css-1k51tf5-MuiTooltip-tooltip{
+	margin-bottom: 6px;
+}
+
+.MuiTooltip-popper[data-popper-placement*="bottom"] .css-1k51tf5-MuiTooltip-tooltip{
+	margin-top: 6px;
+}

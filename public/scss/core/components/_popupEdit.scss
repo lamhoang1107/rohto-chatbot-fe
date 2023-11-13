@@ -1,0 +1,109 @@
+.tt-dialog{
+
+    .MuiDialog-container{
+
+        &::-webkit-scrollbar-track{
+            background-color: getColor(popup-background);
+        }
+
+        &::-webkit-scrollbar{
+            width: 17px;
+            background-color: getColor(popup-background);
+        }
+
+        &::-webkit-scrollbar-thumb{
+            border-radius: 10px;
+            background-color: getColor(popup-scrollbarThump);
+            border: 4px solid transparent;
+            background-clip: content-box;
+            @include transition(all .2s linear);
+
+            &:hover{
+                background-color: #909090;
+                background-color: getColor(popup-scrollbarThumpHover);
+            }
+        }
+    }
+
+    // .MuiDialog-paper{
+    //     background-color: getColor(bg-body);
+    // }
+
+    .MuiDialogTitle-root{
+        padding: 0 24px;
+
+        .d-flex{
+            padding: 12px 0 10px;
+            border-bottom: 1px solid getColor(primary-border);
+
+            h4{
+                font-size: 1.8rem;
+                color: getColor(primary-text);
+            }
+
+            .popupClose{
+                width: 25px;
+                height: 25px;
+                background-color: transparent;
+                color: $primary;
+                font-size: 2rem;
+                min-width: 25px;
+                padding: 0;
+                @include box-shadow(inherit);
+                @include border-radius(50%);
+            }
+        }
+    }
+
+    .MuiDialogContentText-root{
+            font-size: 1.4rem;
+            color: getColor(primary-text);
+            margin-bottom: 10px;
+    }
+
+    .MuiDialogActions-root{
+        padding: 0 24px;
+
+        .d-flex{
+            width: 100%;
+            padding: 20px 0;
+            border-top: 1px solid getColor(primary-border);
+        }
+    }
+
+    &.share-pdf{
+        .MuiDialog-container{
+            .MuiPaper-root{
+                .MuiDialogContent-root{
+                    .MuiFormControl-root{
+                        width:100%;
+                        .shareEmail{
+                            margin-left: 24px;
+                        }
+                        .MuiFormGroup-root{
+                            .MuiFormControlLabel-root{
+                                // height: 60px;
+                            }
+                        }
+                    }
+                    .share-success{
+                        .share-description {
+                            margin-top: 20px;
+                            &.success{
+                                font-weight: 600;
+                                font-size: 1.6rem;
+                            }
+                        }
+                        .share-detail{
+                            display: flex;
+                            flex-direction: row;
+                            height: 50px;
+                            align-items: center;
+                            gap: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

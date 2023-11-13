@@ -1,0 +1,29 @@
+@import '../mixins/checkbox';
+
+.MuiFormControlLabel-root{
+    margin-left: -9px !important;
+
+    .MuiCheckbox-root{
+
+        .cbx{
+            position: relative;
+            width: $cbx-width;
+            height: $cbx-height;
+            border-radius: $cbx-border-radius;
+            background-color: $cbx-backgroud-color;
+        }
+    }
+
+    .MuiIconButton-colorSecondary{
+        &:hover{
+            background-color: transparent !important;
+        }
+    }
+}
+
+@each $color, $value in $theme-colors {
+    .cbx-#{$color}{
+        @include checkbox-variant($value);
+    }
+}
+

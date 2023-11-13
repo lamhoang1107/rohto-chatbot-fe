@@ -1,0 +1,87 @@
+@import '../abstracts/variables';
+
+// Button variants
+//
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all buttons
+
+@mixin button-variant($background,$border,$hover-background: darken($background, 7.5%),$hover-border: darken($border, 10%)){
+    background-color: $background;
+    border-color: $border;
+
+    &:hover{
+        background-color: $hover-background;
+        border-color: $hover-border;
+        color: color-yiq($hover-background);
+    }
+}
+
+@mixin button-outline-variant($color) {
+    background-color: transparent;
+    color: $color;
+    border-color: $color;
+
+    &:hover{
+        color: color-yiq($color);
+        background-color: $color;
+        border-color: $color;
+    }
+}
+
+@mixin button-light-variant($color) {
+    background-color: rgba($color,.2);
+    color: $color;
+    border-color: transparent;
+
+    svg g [fill]{
+        fill: $color;
+    }
+
+    &:hover{
+        color: #fff;
+        background-color: $color;
+
+        svg g [fill]{
+            fill: #fff;
+        }
+    }
+}
+
+@mixin button-hover-variant($color) {
+    color: $color;
+
+    svg g [fill]{
+        fill: $color;
+    }
+
+    &:hover{
+        color: #fff;
+        background-color: $color;
+        border-color: $color;
+
+        svg g [fill]{
+            fill: #fff;
+        }
+    }
+}
+
+@mixin button-active-variant($color) {
+
+    &:hover{
+        color: #fff;
+        background-color: $color;
+        border-color: $color;
+
+        svg g [fill]{
+            fill: #fff;
+        }
+    }
+}
+
+// Button sizes
+@mixin button-size($padding-y, $padding-x, $font-size, $border-radius) {
+    padding: $padding-y $padding-x;
+    font-size: $font-size;
+    @include border-radius($border-radius);
+}
+
