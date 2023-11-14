@@ -25,7 +25,7 @@ class Form extends React.Component{
 				*/}
 				<FormLayout
 					hideColRight= {true}
-					getData={{product_id:process.env.API_URL+'/v1/products?fqnull=deleted_at'}}
+					getData={{product_id:process.env.API_URL+process.env.PREFIX_API+'products?fqnull=deleted_at'}}
 					fields={[
 						{key:'prompt',label:'Câu hỏi',type:'text',col:'left',isRequired:true,capitalizeContent:false},
 						{key:'completion',label:'Câu trả lời',type:'textarea',col:'left',isRequired:true},
