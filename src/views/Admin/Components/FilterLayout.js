@@ -75,28 +75,6 @@ class FilterLayout extends React.Component {
 		this.setState({values:{...this.state.values,[e.target.name]:_value}});
 	}
 
-	handleUpload=(e)=>{
-		let _err = this.state.errors;
-		let _findKey = _.findIndex(_err,{'key':e.currentTarget?.name});
-		delete _err[_findKey];
-		if(e.currentTarget?.name && e.currentTarget.files[0]){
-			if((e.currentTarget.files[0].size/1000)>=5000&&e.currentTarget.files[0].type.indexOf('image')>=0){
-				_err.push({key:e.currentTarget?.name,msg:'Hình ảnh phải nhỏ hơn < 5Mb'});
-				this.setState({errors:_err})
-				return;
-			}
-			const _oldFile = this.state.oldFile && this.state.id ? this.state.oldFile : this.state.preview[e.currentTarget.name];
-			this._isMounted && this.setState({ 'oldFile': _oldFile, preview: { ...this.state.preview, [e.currentTarget.name]: URL.createObjectURL(e.currentTarget.files[0]) } });
-			let _reader = new FileReader();
-			let _name = e.currentTarget.name;
-			
-			_reader.onload = async (e) => {
-				this._isMounted&&this.setState({values:{...this.state.values,[_name]:e.target.result}});
-			}
-			_reader.readAsDataURL(e.currentTarget.files[0]);
-		}
-	}
-
 	handleOpenAlert=async(type,message)=>{
 		await this.setState({ isAlert:{...this.state.isAlert,status:true,type:type,message:message} });
 	}
@@ -125,52 +103,6 @@ class FilterLayout extends React.Component {
 							valueLabelDisplay="auto"
 							defaultValue={[20, 37]}
 						/>;
-				break;
-			case 'image':
-				_field =  (
-				<div
-					className={"avatarUpload mt-2 " + (_findKey >= 0 ? "error" : "")}
-				  >
-					<div
-					  className={"img " + (this.state.preview[field.key] ? "" : "show")}
-					>
-					  <Image
-						src={
-						  this.state.preview[field.key]
-							? this.state.preview[field.key]
-							: "/images/transparent.png"
-						}
-						alt="Picture of the author"
-						className="img-cover"
-						layout="fill"
-					  />
-		
-					  <label
-						htmlFor={field.key}
-						className="btnInputFile"
-						onChange={this.handleUpload}
-					  >
-						<IconButton
-						  color="primary"
-						  aria-label="upload picture"
-						  component="span"
-						>
-						  <i className="fal fa-edit"></i>
-						</IconButton>
-					  </label>
-					</div>
-					<input
-					  accept="image/*"
-					  className="inputFile"
-					  name={field.key}
-					  id={field.key}
-					  type="file"
-					  onChange={this.handleUpload}
-					/>
-					<p className="MuiFormHelperText-root">
-						{_findKey >= 0 ? _errArr[_findKey].msg : ""}
-					</p>
-				  </div>);
 				break;
 			case 'radio':
 				//formCheckInline : 1 dòng

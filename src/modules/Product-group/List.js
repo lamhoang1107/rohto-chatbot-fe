@@ -52,7 +52,7 @@ class List extends React.Component {
 					export={false}
 					isBtnImport={false}
 					sort='created_at,-id'
-					getFilterData={{category_id:process.env.API_URL+'/v1/categories'}}
+					getFilterData={{category_id:process.env.API_URL+'/v1/categories?fqnull=deleted_at'}}
 
 					columns={[
 						{key:'name',label:'Nhóm sản phẩm',type:'text'},

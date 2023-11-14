@@ -176,6 +176,12 @@ class FormLayout extends React.Component {
             : _defaultValue != null
             ? _defaultValue
             : this.props.fields[_findIndex]?.type == 'select_multi' ? (_data.items ? [_data?.items[0]?.id] :[_data?.data[0]?.id]) :  (_data.items ? _data?.items[0]?.id : _data?.data[0]?.id ) ?? "";
+          if (this.state.module == "prompts") {
+            _data.data = _data.data.map(product => ({
+              ...product,
+              name: `${product.category_name} - ${product.product_group_name} - ${product.name}`
+            }));
+          }
           this._isMounted &&
             this.setState(
               {
@@ -310,17 +316,6 @@ class FormLayout extends React.Component {
         }
         if (this.props?.fields[_findIndex]?.type == "autoComplete" || this.props?.fields[_findIndex]?.type == "select_multi") {
           val = this.state.values[key] ? this.state.values[key] : val;
-        }
-        if (this.state.module == "websites") {
-          if (key == "website_content" && this.state.id !== "" && this.state.prevValues?.website_content && val !== this.state.prevValues.website_content) {
-            _obj.website_content_changed = true;
-          }
-        }
-        if (key == "source_name" && this.state.id !== "" && this.state.prevValues?.source_name && val !== this.state.prevValues.source_name) {
-          _obj.source_name_changed = true;
-        }
-        if (key == "category_id" && this.state.id !== "" && this.state.prevValues?.category_id && val !== this.state.prevValues.category_id) {
-          _obj.category_id_changed = true;
         }
         _obj[key] = val && val ? val : undefined;
       });

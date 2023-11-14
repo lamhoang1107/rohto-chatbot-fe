@@ -350,6 +350,7 @@ class ListLayout extends React.Component {
 				this.handleClosePopupDelete();
 				this.setState({isLoading:false});
 				if(_result?.response?.data?.errors?.msg) this.props.handleFailure(_result?.response?.data?.errors?.msg);
+				if(_result?.response?.data?.errors[0]?.msg) this.props.handleFailure(_result?.response?.data?.errors[0]?.msg);
 			}
 		}
 	}

@@ -25,7 +25,7 @@ class Form extends React.Component{
 				*/}
 				<FormLayout
 					hideColRight= {true}
-					getData={{category_id:process.env.API_URL+'/v1/categories'}}
+					getData={{category_id:process.env.API_URL+'/v1/categories?fqnull=deleted_at'}}
 					fields={[
 						{key:'name',label:'Nhóm sản phẩm',type:'text',col:'left',isRequired:true,capitalizeContent:false},
 						{key:'category_id',label:'Category',type:'select',defaultValue:[],col:'left',isRequired:true},
