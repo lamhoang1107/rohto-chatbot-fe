@@ -29,7 +29,7 @@ class Form extends React.Component{
 					fields={[
 						{key:'prompt',label:'Câu hỏi',type:'text',col:'left',isRequired:true,capitalizeContent:false},
 						{key:'completion',label:'Câu trả lời',type:'textarea',col:'left',isRequired:true},
-						{key:'product_id',label:'Sản phẩm',type:'select',defaultValue:[],col:'left',isRequired:true},
+						{key:'product_id',label:'Sản phẩm',type:'select',defaultValue:[],values:[{label:'Không chọn sản phẩm',value:''}],col:'left',isRequired:false},
 					]}
 				/>
 			</>
