@@ -1,6 +1,6 @@
 module.exports = {
 	apps: [{
-		name: "cdp-fe",
+		name: "cms.chat",
 		script: "./server.js",
 		env: {
 			"NODE_ENV": "development"
