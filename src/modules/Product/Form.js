@@ -25,7 +25,7 @@ class Form extends React.Component{
 				*/}
 				<FormLayout
 					hideColRight= {true}
-					getData={{product_group_id:process.env.API_URL+process.env.PREFIX_API+'product-groups?fqnull=deleted_at'}}
+					getData={{product_group_id:process.env.API_URL+process.env.PREFIX_API+'product-groups?fqnull=deleted_at&limit=10000'}}
 					fields={[
 						{key:'name',label:'Tên sản phẩm',type:'text',col:'left',isRequired:true,capitalizeContent:false},
 						{key:'product_group_id',label:'Nhóm sản phẩm',type:'select',defaultValue:[],col:'left',isRequired:true},
