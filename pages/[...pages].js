@@ -74,7 +74,7 @@ export default class CorePages extends React.Component {
 		let _account = this.props.store.getState().account;
 		if(this.props.route!='login'&&this.props.sg!=''&&Object.keys(_account).length==0) await this.refreshToken(this.props.sg);
 		else if(Object.keys(_account).length==0&&this.props.route!='login'){
-			if(this.props.route!='checkin'&&this.props.route!='check-qr'&&this.props.route!='checkin2'&&this.props.route!='test-qr') Router.push('/login');
+			Router.push('/login');
 		}
 	}
 

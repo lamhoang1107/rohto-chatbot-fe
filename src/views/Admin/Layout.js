@@ -35,16 +35,9 @@ class Layout extends React.Component{
 	}
 
 	componentDidMount(){
-		// if(localStorage && localStorage.getItem('darkMode')){
-		// 	let _statusDarkMode = JSON.parse(localStorage.getItem('darkMode'));
-		// 	this.props.setDarkMode(_statusDarkMode);
-		// }else{
-		// 	if(typeof window!=="undefined"&&window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches){
-		// 		this.props.setDarkMode(true);
-		// 	}else{
-		// 		this.props.setDarkMode(false);
-		// 	}
-		// }
+		if (!this.props.route) {
+			Router.push('/login');
+		}
 		this.props.setDarkMode(false);
 	}
 
@@ -133,14 +126,6 @@ class Layout extends React.Component{
 
 				<div id="tt-root" className={"d-flex flex-grow-1 "+(_status.asideMinimize&&styles.asideMiniminze)} >
 					{(this.props.router?.query?.pages&&this.props.router?.query?.pages[0]=='login')
-					?<>{this.props.children}</>
-					:(this.props.router?.query?.pages&&this.props.router?.query?.pages[0]=='checkin')
-					?<>{this.props.children}</>
-					:(this.props.router?.query?.pages&&this.props.router?.query?.pages[0]=='checkin2')
-					?<>{this.props.children}</>
-					:(this.props.router?.query?.pages&&this.props.router?.query?.pages[0]=='check-qr')
-					?<>{this.props.children}</>
-					:(this.props.router?.query?.pages&&this.props.router?.query?.pages[0]=='test-qr')
 					?<>{this.props.children}</>
 					:
 					<div id="tt-main" className={"d-flex flex-grow-1 flex-column justify-content-between"+(this.props.router?.query?.token&&this.props.router?.query?.token!=''?' hideAsideMenu':'')}>
