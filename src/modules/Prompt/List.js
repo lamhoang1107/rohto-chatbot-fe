@@ -42,7 +42,7 @@ class List extends React.Component {
 					nameDisplay={'Quản lý nội dung Prompts'}
 					isBtnAdd={true}
 					search={true}
-					search_fields={'prompt'}
+					search_fields={'prompt,completion'}
 					total = {true}
 					isBtnFilter={true} 
 					hideAction={false}
