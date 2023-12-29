@@ -56,7 +56,7 @@ const accountSlice = createSlice({
 		[login.fulfilled]: (state, action) => {
 			if(action?.payload?.status=='success'){
 				state = action.payload.result;
-				Router.push('/customer-datas');
+				Router.push('/login');
 				return state;
 			}else{
 				return state;
