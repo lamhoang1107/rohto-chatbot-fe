@@ -563,7 +563,13 @@ class ListLayout extends React.Component {
 					_value=<Link href="/[...page]" as={"/"+column.module+"/"+`?${column.fieldName}=${val['id']}&status=1`}><a><span>{_val}</span></a></Link>
 					else _value=<Link href="/[...page]" as={"/"+this.state.module+"/"+val['id']+'/edit'}><a><span>{_val}</span></a></Link>
 				}
-				else _value=<span>{_val?_val.toString():''}</span>;
+				else {
+					let text = _val?_val.toString():''
+					if (text.length > 500) {
+						text = text.substring(0, 500) + '...';
+					}
+					_value=<span>{text}</span>;
+				}
 				break;
 		}
 		return _value;
