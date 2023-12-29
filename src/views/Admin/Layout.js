@@ -35,9 +35,10 @@ class Layout extends React.Component{
 	}
 
 	componentDidMount(){
-		if (!this.props.route) {
-			Router.push('/login');
-		}
+		// if (!this.props.route) {
+		// 	console.log("hả")
+		// 	Router.push('/login');
+		// }
 		this.props.setDarkMode(false);
 	}
 
