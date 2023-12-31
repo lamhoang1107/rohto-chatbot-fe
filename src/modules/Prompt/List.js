@@ -55,12 +55,12 @@ class List extends React.Component {
 					getFilterData={{"categories.id":process.env.API_URL+process.env.PREFIX_API+'categories?fqnull=deleted_at&limit=10000',"product_groups.id":process.env.API_URL+process.env.PREFIX_API+'product-groups?fqnull=deleted_at&limit=10000',product_id:process.env.API_URL+process.env.PREFIX_API+'products?fqnull=deleted_at&limit=10000'}}
 
 					columns={[
-						{key:'category_name',label:'Category',type:'text',width:150},
-						{key:'product_group_name',label:'Nhóm sản phẩm',type:'text',width:150},
-						{key:'product_name',label:'Tên sản phẩm',type:'text',width:150},
+						{key:'category_name',label:'Category',type:'text',width:100},
+						{key:'product_group_name',label:'Nhóm sản phẩm',type:'text',width:100},
+						{key:'product_name',label:'Tên sản phẩm',type:'text',width:200},
 						{key:'prompt',label:'Câu hỏi',type:'text'},
-						{key:'created_at',label:'Ngày tạo',type:'dateTime',width:150},
-						{key:'updated_at',label:'Ngày cập nhật',type:'dateTime',width:150}
+						{key:'created_at',label:'Ngày tạo',type:'dateTime',width:120},
+						{key:'updated_at',label:'Ngày cập nhật',type:'dateTime',width:120}
 					]}
 					filters={[
 						{key:'categories.id',label:'Category',type:'select',values:[{label:'Chọn',value:''}]},

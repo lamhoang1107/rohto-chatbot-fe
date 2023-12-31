@@ -39,7 +39,7 @@ class List extends React.Component {
 				
 
 				<ListLayout
-					nameDisplay={'Quản lý nội dung Prompts'}
+					nameDisplay={'Quản lý danh sách sản phẩm'}
 					isBtnAdd={true}
 					search={true}
 					search_fields={'name'}

@@ -30,6 +30,10 @@ class Form extends React.Component{
 						{key:'prompt',label:'Câu hỏi',type:'text',col:'left',isRequired:true,capitalizeContent:false},
 						{key:'completion',label:'Câu trả lời',type:'textarea',col:'left',isRequired:true},
 						{key:'product_id',label:'Sản phẩm',type:'select',defaultValue:[],values:[{label:'Không chọn sản phẩm',value:''}],col:'left',isRequired:false},
+						{key:'price',label:'Giá',type:'text',col:'left',isRequired:false,capitalizeContent:false},
+						{key:'unit',label:'Đơn vị',type:'text',col:'left',isRequired:false,capitalizeContent:false},
+						{key:'use_guide',label:'Hướng dẫn sử dụng',type:'textarea',col:'left',isRequired:false},
+						{key:'use_case',label:'Trường hợp sử dụng',type:'textarea',col:'left',isRequired:false},
 					]}
 				/>
 			</>
