@@ -50,11 +50,34 @@ class List extends React.Component {
 					maxWidthPopup='lg'
 					data
 					customSearch={false}
-					export={false}
+					export={true}
 					isBtnImport={false}
 					hideActionEdit={true}
 					hideActionDel={true}
 					sort='created_at'
+					exportFields={[
+						{
+							label:'STT',
+							key:'index'
+						},
+						{
+							label:'Dialog ID',
+							key:'dialog_id'
+						},
+						{
+							label:'User message',
+							key:'user_message'
+						},
+						{
+							label:'Assistant message',
+							key:'assistant_message'
+						},
+						{
+							label:'Ngày tạo',
+							key:'created_at',
+							format: 'dateTime'
+						},
+					]}
 					columns={[
 						{key:'dialog_id',label:'Dialog ID',type:'text',width:100},
 						{key:'user_message',label:'User message',type:'text'},
